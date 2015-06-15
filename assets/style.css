@@ -12,3 +12,15 @@
 .navbar-inverse .navbar-nav>li>a {
 	color: white;
 }
+.item_container > div {
+	margin-left: 8%;
+	margin-bottom: 2%;
+}
+.item_container > div > img {
+	width: 225px;
+	height: 225px;
+}
+.modal_img{
+	width: 540px;
+	height: 350px;
+}
