@@ -10,6 +10,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+	<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 'your-app-id',
+          xfbml      : true,
+          version    : 'v2.3'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+	<div class="col-xs-12 top_header"></div>
+	<div class="container">
+		<div class="col-xs-12">
+			<div class="col-xs-6"><h1>THE SNEAKER CLOSET.</h1></div>
+			<div class="col-xs-6"><input class="search_input" type="text" placeholder="Search"></div>
+		</div>
+		<div class="col-xs-12 navigation">
+			    <div class="navbar navbar-inverse">
+        <div class="container">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navigation_items">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about">BUY</a></li>
+                    <li><a href="#skills">SELL</a></li>
+                    <li><a href="#projects">RELEASE DATES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    	</div>
+		</div>
+		<div class="col-xs-3">
+			<h3>BRANDS</h3>
+			<p>Nike</p>
+			<p>Adidas</p>
+			<p>Jordan</p>
+			<p>New Balance</p>
+			<p>Asics</p>
+			<p>Reebok</p>
+			<p>Saucony</p>
+			<p>Vans</p>
+			<p>Nike Basketball</p>
+			<p>Puma</p>
+			<p>Others</p>
+		</div>
+		<div class="col-xs-9 item_container">
+		</div>
+		<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default close_button" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+	</div>
+	</div>
 	
 </body>
 </html>
