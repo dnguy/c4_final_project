@@ -1,4 +1,5 @@
 var item_array = [];
+var modal_item_display = [];
 
 function retrieve_info_images(){
 	$.ajax({
@@ -12,6 +13,10 @@ function retrieve_info_images(){
 			var img = $('<img>').attr('src', response[i].filepath);
 			$(img_div).append(img);
 			$('.item_container').append(img_div);
+
+			$(img_div).click(function(){
+				var modal_img = $('<img>').attr('src', response[i].filepath)
+			});
 		}
 		}
 	});
