@@ -20,30 +20,28 @@
 <div class='logout_container'>
 </div>
   </div>
-	<div class="container">
-		<div class="col-xs-12">
-			<div class="col-xs-6"><h1>THE SNEAKER CLOSET.</h1></div>
-			<div class="col-xs-6"><input class="search_input" type="text" placeholder="Search"></div>
-		</div>
-		<div class="col-xs-12 navigation">
-			    <div class="navbar navbar-inverse">
-        <div class="container">
+      <div class="col-xs-12">
+      <div class="col-xs-12"><h1 class="header_title">THE SNEAKER <br> CLOSET.</h1></div>
+      <!-- <div class="col-xs-6"><input class="search_input" type="text" placeholder="Search"></div> -->
+    </div>
+    <div class="col-xs-12">
+          <div class="navbar container">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse navHeaderCollapse">
+            <div class="collapse navbar-collapse navHeaderCollapse navigation">
                 <ul class="nav navbar-nav navigation_items">
                     <li><a href="#home">HOME</a></li>
-                    <li><a href="#about">BUY</a></li>
-                    <li><a href="#skills">SELL</a></li>
-                    <li><a href="#projects">RELEASE DATES</a></li>
+                    <li><a href="#buy">BUY</a></li>
+                    <li><a href="index.php?page=sell">SELL</a></li>
+                    <li><a href="#release_dates">RELEASE DATES</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
         </div>
-    	</div>
-		</div>
-		<div class="col-xs-2">
+      </div>
+	<div class="container">
+		<div class="col-xs-1">
 			<h3>BRANDS</h3>
 			<p>Nike</p>
 			<p>Adidas</p>
@@ -57,7 +55,7 @@
 			<p>Puma</p>
 			<p>Others</p>
 		</div>
-		<div class="col-xs-9 item_container">
+		<div class="col-xs-10 col-xs-offset-1 item_container">
 		</div>
 		<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">

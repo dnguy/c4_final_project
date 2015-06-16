@@ -9,7 +9,7 @@ function retrieve_info_images(){
 		success: function(response){
 			item_array = response; 
 			for(var i = 0; i < item_array.length; i++){
-			var img_div = $('<div>').addClass('col-xs-3').attr({user_id: response[i].user_id, id: response[i].id, index_number: i});
+			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: response[i].user_id, id: response[i].id, index_number: i});
 			var img = $('<img>').attr('src', 'uploads/' + response[i].filepath);
 			$(img_div).append(img);
 			$('.item_container').append(img_div);
@@ -21,10 +21,11 @@ function retrieve_info_images(){
 				var modal_img = $('<img>').attr('src', 'uploads/' + item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
 				var title = $('<div>').text(item_array[$(this).attr('index_number')].title);
 				var shoe_condition = $('<div>').text('Condition: ' + item_array[$(this).attr('index_number')].shoe_condition)
-				var details = $('<div>').text(item_array[$(this).attr('index_number')].details);
+				var details = $('<div>').text('Details: ' + item_array[$(this).attr('index_number')].details);
 				var size = $('<div>').text('size: ' + item_array[$(this).attr('index_number')].size);
 				var price = $('<div>').text('$' + item_array[$(this).attr('index_number')].price);
 				var contact_buyer_button = $('<button>').attr('type', 'submit').text('Contact');
+				var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase');
 				var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
 
 				$(vote_priority_button).click(function(){
@@ -55,7 +56,7 @@ function retrieve_info_images(){
 				});
 
 				$('.modal-title').html(title);
-				$('.modal-body').append(modal_img,shoe_condition, details, size, price, contact_buyer_button, vote_priority_button);
+				$('.modal-body').append(modal_img,shoe_condition, details, size, price, contact_buyer_button,purchase_item_button, vote_priority_button);
 				$('#myModal').modal('show');
 
 			});
@@ -147,14 +148,36 @@ function retrieve_info_images(){
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
+    	$('#status').html('');
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      var user_icon = $('<i>').addClass('fa fa-user fa-2x col-xs-2');
+      var name_div = $('<div>').text(response.name).addClass('col-xs-8 user_name');
+         $('#status').append(user_icon, name_div);
     });
   }
   function API_call(){
   FB.api('/me', function(response) {
     user_info = response;
+    $.ajax({
+    	url: 'login_handler.php',
+    	data: {
+    		name: user_info.first_name +''+ user_info.last_name,
+    		id: user_info.id,
+    		email: user_info.email,
+    	},
+    	method: 'POST',
+    	dataType: 'json',
+    	success: function(response){
+    		if(response.success){
+    			console.log('account created');
+    			$('.modal-body').text('Thank You for Logging in. A new account has been created for you. You can now start to buy and sell shoes!');
+    			$('#myModal').modal('show');
+    		}
+    		else if(!response.success){
+    			console.log('account already exists');
+    		}
+    	}
+    });
 });
 };
 
