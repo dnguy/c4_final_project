@@ -1,4 +1,5 @@
 var item_array = [];
+var user_info = [];
 
 function retrieve_info_images(){
 	$.ajax({
@@ -16,7 +17,7 @@ function retrieve_info_images(){
 			$(img_div).click(function(){
 				$('.modal-title').html('');
 				$('.modal-body').html('');
-				console.log(item_array[$(this).attr('index_number')].filepath)
+				
 				var modal_img = $('<img>').attr('src', 'uploads/' + item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
 				var title = $('<div>').text(item_array[$(this).attr('index_number')].title);
 				var shoe_condition = $('<div>').text('Condition: ' + item_array[$(this).attr('index_number')].shoe_condition)
@@ -24,9 +25,37 @@ function retrieve_info_images(){
 				var size = $('<div>').text('size: ' + item_array[$(this).attr('index_number')].size);
 				var price = $('<div>').text('$' + item_array[$(this).attr('index_number')].price);
 				var contact_buyer_button = $('<button>').attr('type', 'submit').text('Contact');
+				var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
+
+				$(vote_priority_button).click(function(){
+					$.ajax({
+						url: 'vote_priority_handler.php',
+						data: {
+							user_id: user_info.id,
+							post_id: item_array[$(this).attr('index_number')].id,
+						},
+						method: 'POST',
+						dataType: 'json',
+						success: function(response){
+							console.log(response);
+							if(response.success){
+								console.log('item was liked');
+								$('.alert').remove();
+								var success_message = $('<div>').addClass('alert alert-success').text('Item was liked');
+								$('.modal-body').append(success_message);
+						
+					}
+							else if(!response.success){
+								$('.alert').remove();
+								var error_message = $('<div>').addClass('alert alert-danger').text('Item was already liked');
+								$('.modal-body').append(error_message);
+					}
+						}
+					});
+				});
 
 				$('.modal-title').html(title);
-				$('.modal-body').append(modal_img,shoe_condition, details, size, price, contact_buyer_button);
+				$('.modal-body').append(modal_img,shoe_condition, details, size, price, contact_buyer_button, vote_priority_button);
 				$('#myModal').modal('show');
 
 			});
@@ -125,7 +154,7 @@ function retrieve_info_images(){
   }
   function API_call(){
   FB.api('/me', function(response) {
-    console.log(JSON.stringify(response));
+    user_info = response;
 });
 };
 
