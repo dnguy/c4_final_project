@@ -1,8 +1,14 @@
 <?php 
+session_start();
 require('mysql_connect.php');
-$name = mysql_real_escape_string($_POST['name']);
+$first_name = mysql_real_escape_string($_POST['first_name']);
+$last_name = mysql_real_escape_string($_POST['last_name']);
 $id = mysql_real_escape_string($_POST['id']);
 $email = mysql_real_escape_string($_POST['email']);
+
+$_SESSION['id'] = $id;
+$_SESSION['name'] = $first_name . "&nbsp" .$last_name;
+$_SESSION['email'] = $email;
 
 $query_check = "SELECT id,email FROM `users` WHERE id='$id' AND email='$email'";
 
@@ -16,7 +22,7 @@ if(mysqli_num_rows($result_check) > 0){
 	exit();
 }
 else{
-$query = "INSERT INTO `kicks`.`users` (`id`, `email`, `name`) VALUES ('$id', '$email', 'name');";
+$query = "INSERT INTO `kicks`.`users` (`id`, `email`, `first_name`, `last_name`) VALUES ('$id', '$email', '$first_name', '$last_name');";
 
 $result = mysqli_query($con, $query);
 

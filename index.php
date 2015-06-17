@@ -1,3 +1,6 @@
+<?
+$pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','contact'=>'assets/pages/contact.php']
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +34,7 @@
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse navigation">
                 <ul class="nav navbar-nav navigation_items">
-                    <li><a href="#home">HOME</a></li>
+                    <li><a href="index.php?page=home">HOME</a></li>
                     <li><a href="#buy">BUY</a></li>
                     <li><a href="index.php?page=sell">SELL</a></li>
                     <li><a href="#release_dates">RELEASE DATES</a></li>
@@ -55,8 +58,17 @@
 			<p>Puma</p>
 			<p>Others</p>
 		</div>
-		<div class="col-xs-10 col-xs-offset-1 item_container">
-		</div>
+    <section class='listing_page'>
+        <? 
+               if(!isset($_GET['page'])){
+                $_GET['page']= 'home';
+                include($pages[$_GET['page']]);
+               }
+               else {
+               include_once($pages[$_GET['page']]);
+           }
+               ?>
+    </section>
 		<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->

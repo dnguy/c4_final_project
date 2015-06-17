@@ -10,7 +10,7 @@ function retrieve_info_images(){
 			item_array = response; 
 			for(var i = 0; i < item_array.length; i++){
 			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: response[i].user_id, id: response[i].id, index_number: i});
-			var img = $('<img>').attr('src', 'uploads/' + response[i].filepath);
+			var img = $('<img>').attr('src', response[i].filepath);
 			$(img_div).append(img);
 			$('.item_container').append(img_div);
 
@@ -18,7 +18,7 @@ function retrieve_info_images(){
 				$('.modal-title').html('');
 				$('.modal-body').html('');
 				
-				var modal_img = $('<img>').attr('src', 'uploads/' + item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
+				var modal_img = $('<img>').attr('src', item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
 				var title = $('<div>').text(item_array[$(this).attr('index_number')].title);
 				var shoe_condition = $('<div>').text('Condition: ' + item_array[$(this).attr('index_number')].shoe_condition)
 				var details = $('<div>').text('Details: ' + item_array[$(this).attr('index_number')].details);
@@ -80,11 +80,14 @@ function retrieve_info_images(){
       API_call();
       $('.login_button').hide();
       var logout_button = $('<button>').attr('type', 'button').addClass('logout_button').text('Logout');
+      var account_button = $('<button>').attr('type', 'button').addClass('account_button');
+      var link_to_account = $('<a>').attr('href','index.php?page=account').text('Account');
+      $(account_button).append(link_to_account);
       $(logout_button).click(function(){
         logout();
       });
 
-      $('.logout_container').append(logout_button);
+      $('.logout_container').append(logout_button, account_button);
 
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -161,7 +164,8 @@ function retrieve_info_images(){
     $.ajax({
     	url: 'login_handler.php',
     	data: {
-    		name: user_info.first_name +''+ user_info.last_name,
+    		first_name: user_info.first_name,
+    		last_name:  user_info.last_name,
     		id: user_info.id,
     		email: user_info.email,
     	},
@@ -186,6 +190,7 @@ function logout(){
         $('.login_button').show();
         $('#status').html('');
         $('.logout_button').remove();
+        $('.account_button').remove();
         statusChangeCallback(response);
     });
 };
