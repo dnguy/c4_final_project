@@ -1,5 +1,5 @@
 <?
-$pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','contact'=>'assets/pages/contact.php']
+$pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
 <html>

@@ -50,6 +50,15 @@ body.div {
     width: 165px;
     height: 145px;
 }
+.account_container > div {
+    margin-right: 8%;
+    margin-bottom: 2%;
+}
+
+.account_container > div > img {
+    width: 165px;
+    height: 145px;
+}
 
 .modal_img {
     width: 540px;

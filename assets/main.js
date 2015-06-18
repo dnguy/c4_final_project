@@ -9,8 +9,8 @@ function retrieve_info_images(){
 		success: function(response){
 			item_array = response; 
 			for(var i = 0; i < item_array.length; i++){
-			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: response[i].user_id, id: response[i].id, index_number: i});
-			var img = $('<img>').attr('src', response[i].filepath);
+			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: item_array[i].user_id, id: item_array[i].id, index_number: i});
+			var img = $('<img>').attr('src', item_array[i].filepath);
 			$(img_div).append(img);
 			$('.item_container').append(img_div);
 
@@ -79,10 +79,12 @@ function retrieve_info_images(){
       testAPI();
       API_call();
       $('.login_button').hide();
-      var logout_button = $('<button>').attr('type', 'button').addClass('logout_button').text('Logout');
+      var logout_button = $('<button>').attr('type', 'button').addClass('logout_button');
+      var link_to_logout = $('<a>').attr('href','index.php?page=logout').text('Logout');
       var account_button = $('<button>').attr('type', 'button').addClass('account_button');
       var link_to_account = $('<a>').attr('href','index.php?page=account').text('Account');
       $(account_button).append(link_to_account);
+      $(logout_button).append(link_to_logout);
       $(logout_button).click(function(){
         logout();
       });
@@ -192,6 +194,7 @@ function logout(){
         $('.logout_button').remove();
         $('.account_button').remove();
         statusChangeCallback(response);
+
     });
 };
 
