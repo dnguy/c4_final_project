@@ -28,6 +28,17 @@ function retrieve_info_images(){
 				var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase');
 				var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
 
+				$(contact_buyer_button).click(function(){
+					$('.modal-title').html('');
+					$('.modal-body').html('');
+
+					var subject= $('<input>').attr({placeholder: 'Subject', name:'subject'}).addClass('subject_input col-xs-8 col-xs-offset-2');
+					var message= $('<textarea>').attr({placeholder: 'Message', name:'message'}).addClass('message_input col-xs-8 col-xs-offset-2');
+					var submit_message_button = $('<button>').attr('type','submit').addClass('col-xs-3 col-xs-offset-7').text('Send');
+
+					$('.modal-title').html('Message');
+					$('.modal-body').append(subject, message, submit_message_button);
+				});
 				$(vote_priority_button).click(function(){
 					$.ajax({
 						url: 'vote_priority_handler.php',
