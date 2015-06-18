@@ -24,7 +24,7 @@ function retrieve_info_images(){
 				var details = $('<div>').text('Details: ' + item_array[$(this).attr('index_number')].details);
 				var size = $('<div>').text('size: ' + item_array[$(this).attr('index_number')].size);
 				var price = $('<div>').text('$' + item_array[$(this).attr('index_number')].price);
-				var contact_buyer_button = $('<button>').attr('type', 'submit').text('Contact');
+				var contact_buyer_button = $('<button>').attr({type: 'submit', index_number: $(this).attr('index_number')}).text('Contact');
 				var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase');
 				var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
 
@@ -34,10 +34,33 @@ function retrieve_info_images(){
 
 					var subject= $('<input>').attr({placeholder: 'Subject', name:'subject'}).addClass('subject_input col-xs-8 col-xs-offset-2');
 					var message= $('<textarea>').attr({placeholder: 'Message', name:'message'}).addClass('message_input col-xs-8 col-xs-offset-2');
-					var submit_message_button = $('<button>').attr('type','submit').addClass('col-xs-3 col-xs-offset-7').text('Send');
+					var submit_message_button = $('<button>').attr({type: 'submit',index_number: $(this).attr('index_number') }).addClass('col-xs-3 col-xs-offset-7').text('Send');
 
 					$('.modal-title').html('Message');
 					$('.modal-body').append(subject, message, submit_message_button);
+
+					$(submit_message_button).click(function(){
+						$.ajax({
+							url: 'message_handler.php',
+							dataType: 'json',
+							data: {
+								subject: $(subject).val(),
+								message: $(message).val(),
+								sender: user_info.email,
+								postid: item_array[$(this).attr('index_number')].id,
+							},
+							method: 'POST',
+							success: function(response){
+								console.log(response);
+								if(response.success){
+									$('.modal-title').html('');
+									$('.modal-body').html('');
+									$('.modal-body').html('Your message has been sent!')
+									$('#myModal').modal('show');
+								}
+							}
+						});
+					});
 				});
 				$(vote_priority_button).click(function(){
 					$.ajax({

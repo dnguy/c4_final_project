@@ -21,6 +21,7 @@ else{
 
 }
 $user_id = mysql_real_escape_string($_SESSION['id']);
+$user_email = mysql_real_escape_string($_SESSION['email']);
 $title = mysql_real_escape_string($_POST['title']);
 $details = mysql_real_escape_string($_POST['details']);
 $size = mysql_real_escape_string($_POST['size']);
@@ -30,7 +31,7 @@ $location = mysql_real_escape_string($_POST['location']);
 $postal_code = mysql_real_escape_string($_POST['postal_code']);
 
 
-$query = "INSERT INTO `kicks`.`items` (`id`, `title`, `details`, `size`, `shoe_condition`, `filepath`, `user_id`, `price`, `location`, `postal_code`) VALUES (NULL, '$title', '$details', '$size', '$shoe_condition', '$target_file', '$user_id', '$price', '$location', '$postal_code')";
+$query = "INSERT INTO `kicks`.`items` (`id`, `title`, `details`, `size`, `shoe_condition`, `filepath`, `user_id`, `price`, `location`, `postal_code`, `user_email`) VALUES (NULL, '$title', '$details', '$size', '$shoe_condition', '$target_file', '$user_id', '$price', '$location', '$postal_code', '$user_email')";
 
 $result = mysqli_query($con, $query);
 
