@@ -29,9 +29,10 @@ $shoe_condition = mysql_real_escape_string($_POST['shoe_condition']);
 $price = mysql_real_escape_string($_POST['price']);
 $location = mysql_real_escape_string($_POST['location']);
 $postal_code = mysql_real_escape_string($_POST['postal_code']);
+$brand = mysql_real_escape_string($_POST['brand']);
 
 
-$query = "INSERT INTO `kicks`.`items` (`id`, `title`, `details`, `size`, `shoe_condition`, `filepath`, `user_id`, `price`, `location`, `postal_code`, `user_email`) VALUES (NULL, '$title', '$details', '$size', '$shoe_condition', '$target_file', '$user_id', '$price', '$location', '$postal_code', '$user_email')";
+$query = "INSERT INTO `kicks`.`items` (`id`, `title`, `details`, `size`, `shoe_condition`, `filepath`, `user_id`, `price`, `location`, `postal_code`, `user_email`, `brand`) VALUES (NULL, '$title', '$details', '$size', '$shoe_condition', '$target_file', '$user_id', '$price', '$location', '$postal_code', '$user_email', '$brand')";
 
 $result = mysqli_query($con, $query);
 

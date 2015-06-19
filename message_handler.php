@@ -2,12 +2,19 @@
 session_start();
 require('mysql_connect.php');
 
+if(!isset($_POST['sender'])){
+	$output['success'] = false;
+	$output['errors'] = 'You must be logged in to send messages.';
+	$output_string = json_encode($output);
+	print_r($output_string);
+	exit();
+}
+
 $query_recipient_email = "SELECT user_email FROM `items` WHERE id='1'";
 $result_email = mysqli_query($con, $query_recipient_email);
 
 $row = mysqli_fetch_assoc($result_email);
 $email= $row;
-
 
 $sender = mysql_real_escape_string($_POST['sender']);
 $subject = mysql_real_escape_string($_POST['subject']);

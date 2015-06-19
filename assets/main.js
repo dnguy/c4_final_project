@@ -1,5 +1,3 @@
-var item_array = [];
-var user_info = [];
 
 function retrieve_info_images(){
 	$.ajax({
@@ -7,10 +5,10 @@ function retrieve_info_images(){
 		dataType: 'json',
 		method: 'POST',
 		success: function(response){
-			item_array = response; 
-			for(var i = 0; i < item_array.length; i++){
-			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: item_array[i].user_id, id: item_array[i].id, index_number: i});
-			var img = $('<img>').attr('src', item_array[i].filepath);
+			console.log(response);
+			for(var i = 0; i < response.items.length; i++){
+			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: response.items[i].user_id, id: response.items[i].id, index_number: i});
+			var img = $('<img>').attr('src', response.items[i].filepath);
 			$(img_div).append(img);
 			$('.item_container').append(img_div);
 
@@ -18,12 +16,12 @@ function retrieve_info_images(){
 				$('.modal-title').html('');
 				$('.modal-body').html('');
 				
-				var modal_img = $('<img>').attr('src', item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
-				var title = $('<div>').text(item_array[$(this).attr('index_number')].title);
-				var shoe_condition = $('<div>').text('Condition: ' + item_array[$(this).attr('index_number')].shoe_condition)
-				var details = $('<div>').text('Details: ' + item_array[$(this).attr('index_number')].details);
-				var size = $('<div>').text('size: ' + item_array[$(this).attr('index_number')].size);
-				var price = $('<div>').text('$' + item_array[$(this).attr('index_number')].price);
+				var modal_img = $('<img>').attr('src', response.items[$(this).attr('index_number')].filepath).addClass('modal_img');
+				var title = $('<div>').text(response.items[$(this).attr('index_number')].title);
+				var shoe_condition = $('<div>').text('Condition: ' + response.items[$(this).attr('index_number')].shoe_condition)
+				var details = $('<div>').text('Details: ' + response.items[$(this).attr('index_number')].details);
+				var size = $('<div>').text('size: ' + response.items[$(this).attr('index_number')].size);
+				var price = $('<div>').text('$' + response.items[$(this).attr('index_number')].price);
 				var contact_buyer_button = $('<button>').attr({type: 'submit', index_number: $(this).attr('index_number')}).text('Contact');
 				var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase');
 				var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
@@ -46,17 +44,21 @@ function retrieve_info_images(){
 							data: {
 								subject: $(subject).val(),
 								message: $(message).val(),
-								sender: user_info.email,
-								postid: item_array[$(this).attr('index_number')].id,
+								sender: response.email,
+								postid: response.items[$(this).attr('index_number')].id,
 							},
 							method: 'POST',
 							success: function(response){
-								console.log(response);
 								if(response.success){
 									$('.modal-title').html('');
 									$('.modal-body').html('');
 									$('.modal-body').html('Your message has been sent!')
 									$('#myModal').modal('show');
+								}
+								else if(!response.success){
+								$('.alert').remove();
+								var error_message = $('<div>').addClass('alert alert-danger col-xs-12').text(response.errors);
+								$('.modal-body').append(error_message);
 								}
 							}
 						});
@@ -66,13 +68,12 @@ function retrieve_info_images(){
 					$.ajax({
 						url: 'vote_priority_handler.php',
 						data: {
-							user_id: user_info.id,
-							post_id: item_array[$(this).attr('index_number')].id,
+							user_id: response.id,
+							post_id: response.items[$(this).attr('index_number')].id,
 						},
 						method: 'POST',
 						dataType: 'json',
 						success: function(response){
-							console.log(response);
 							if(response.success){
 								console.log('item was liked');
 								$('.alert').remove();
@@ -82,7 +83,7 @@ function retrieve_info_images(){
 					}
 							else if(!response.success){
 								$('.alert').remove();
-								var error_message = $('<div>').addClass('alert alert-danger').text('Item was already liked');
+								var error_message = $('<div>').addClass('alert alert-danger').text(response.errors);
 								$('.modal-body').append(error_message);
 					}
 						}
@@ -98,6 +99,7 @@ function retrieve_info_images(){
 		}
 	});
 };
+
 
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -196,14 +198,13 @@ function retrieve_info_images(){
   }
   function API_call(){
   FB.api('/me', function(response) {
-    user_info = response;
     $.ajax({
     	url: 'login_handler.php',
     	data: {
-    		first_name: user_info.first_name,
-    		last_name:  user_info.last_name,
-    		id: user_info.id,
-    		email: user_info.email,
+    		first_name: response.first_name,
+    		last_name:  response.last_name,
+    		id: response.id,
+    		email: response.email,
     	},
     	method: 'POST',
     	dataType: 'json',
@@ -235,5 +236,9 @@ function logout(){
 
 $(document).ready(function(){
 	retrieve_info_images();
+	$('.brands > p').click(function(){
+		console.log('function firing');
+		console.log($(this).html());
+	});
 
 });

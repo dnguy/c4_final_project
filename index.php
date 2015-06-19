@@ -44,17 +44,17 @@ $pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'acco
         </div>
       </div>
 	<div class="container">
-		<div class="col-xs-1">
+		<div class="col-xs-1 brands">
 			<h3>BRANDS</h3>
-			<p>Nike</p>
+			<p class='nike'>Nike</p>
+      <p>Nike Basketball</p>
 			<p>Adidas</p>
-			<p>Jordan</p>
+			<p>Jordan Brand</p>
 			<p>New Balance</p>
 			<p>Asics</p>
 			<p>Reebok</p>
 			<p>Saucony</p>
 			<p>Vans</p>
-			<p>Nike Basketball</p>
 			<p>Puma</p>
 			<p>Others</p>
 		</div>

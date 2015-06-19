@@ -48,11 +48,11 @@ for(var i = 0; i < user_item_array.length; i++){
 				var shoe_condition_container = $('<div>').text('Condition: ');
 				var shoe_condition = $('<select>').attr('name','shoe_condition').addClass('condition_update').html('<option value="brand-new">Brand New</option> <option value="pre-owned">Pre-owned</option>')
 				var details_container = $('<div>').text('Details: ');
-				var details = $('<textarea>').text(item_array[$(this).attr('index_number')].details).addClass('details_update');
+				var details = $('<textarea>').text(user_item_array[$(this).attr('index_number')].details).addClass('details_update');
 				var size_container = $('<div>').text('Size: ');
-				var size = $('<input>').attr('value', item_array[$(this).attr('index_number')].size).addClass('size_update');
+				var size = $('<input>').attr('value', user_item_array[$(this).attr('index_number')].size).addClass('size_update');
 				var price_container = $('<div>').text('Price: ')
-				var price = $('<input>').attr('value', item_array[$(this).attr('index_number')].price).addClass('price_update');
+				var price = $('<input>').attr('value', user_item_array[$(this).attr('index_number')].price).addClass('price_update');
 				var update_button = $('<button>').attr({type: 'button', index_number: $(this).attr('index_number')}).text('Update Item');
 
 				$(title_container).append(title);

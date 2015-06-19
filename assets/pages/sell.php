@@ -1,5 +1,18 @@
 <div class="col-xs-10 col-xs-offset-1 sell_container">
 <form enctype="multipart/form-data" id="file_upload" action="file_handler.php" method="POST">
+<select name="brand">
+	<option value="nike">Nike</option>
+	<option value="nike basketball">Nike Basketball</option>
+	<option value="adidas">Adidas</option>
+	<option value="jordan brand">Jordan Brand</option>
+	<option value="new balance">New Balance</option>
+	<option value="asics">Asics</option>
+	<option value="reebok">Reebok</option>
+	<option value="saucony">Saucony</option>
+	<option value="vans">Vans</option>
+	<option value="puma">Puma</option>
+	<option value="others">Others</option>
+</select><br>
 <input type="text" name="title" placeholder="Title"><br>
 <textarea type="text" name="details" placeholder="Details"></textarea><br>
 <input type="text" name="size" placeholder="Size"><br>

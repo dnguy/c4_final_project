@@ -1,5 +1,14 @@
 <?php 
 require('mysql_connect.php');
+
+if(!isset($_POST['user_id'])){
+	$output['success'] = false;
+	$output['errors'] = 'You must be logged in to like photos';
+	$output_string = json_encode($output);
+	print_r($output_string);
+	exit();
+}
+
 $user_id = mysql_real_escape_string($_POST['user_id']);
 $post_id = mysql_real_escape_string($_POST['post_id']);
 
@@ -10,6 +19,7 @@ $result_check = mysqli_query($con, $query_check);
 
 if(mysqli_num_rows($result_check) > 0){
 	$output['success'] = false;
+	$output['errors'] = 'This photo has already been liked';
 	$output_string = json_encode($output);
 	print_r($output_string);
 	exit();
