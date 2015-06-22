@@ -1,5 +1,4 @@
 <?php 
-header('location: index.php?page=sell');
 session_start();
 require('mysql_connect.php');
 $extensions = ['jpg', 'gif', 'jpeg', 'png'];
@@ -7,9 +6,7 @@ $target_dir = 'uploads/';
 $target_file = $target_dir.$_FILES['fileToUpload']['name'];
 if(file_exists('uploads')){
 	if(in_array(pathinfo($target_file)['extension'], $extensions)){
-		print('the file type matches');
 		if($_FILES['fileToUpload']['size'] < 2000000){
-			print('the file size matches the requirement');
 			if(move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)){
 				
 			}
@@ -40,5 +37,8 @@ if(mysqli_affected_rows($con) > 0){
 	
 		$output['success'] = true; 
 }
+
+$output_string = json_encode($output);
+print_r($output_string);
 
 ?>

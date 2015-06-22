@@ -5,8 +5,13 @@ function retrieve_info_images(){
 		dataType: 'json',
 		method: 'POST',
 		success: function(response){
-			console.log(response);
-			for(var i = 0; i < response.items.length; i++){
+			display_images(response);
+			
+		}
+	});
+};
+function display_images(response){
+	for(var i = 0; i < response.items.length; i++){
 			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: response.items[i].user_id, id: response.items[i].id, index_number: i});
 			var img = $('<img>').attr('src', response.items[i].filepath);
 			$(img_div).append(img);
@@ -96,9 +101,7 @@ function retrieve_info_images(){
 
 			});
 		}
-		}
-	});
-};
+}
 
 
   // This is called with the results from from FB.getLoginStatus().
@@ -235,10 +238,21 @@ function logout(){
 
 
 $(document).ready(function(){
-	retrieve_info_images();
 	$('.brands > p').click(function(){
-		console.log('function firing');
-		console.log($(this).html());
+		$.ajax({
+			url: 'brand_search_handler.php',
+			data:{brand: $(this).html()},
+			dataType: 'json',
+			method: 'POST',
+			success: function(response){
+				$('.item_container').html('');
+				console.log(response.items[0].brand);
+				var brand_title = $('<div>').addClass('col-xs-12 brand_title').html(response.items[0].brand);
+				$('.item_container').append(brand_title);
+				display_images(response);
+
+			}
+		});
 	});
 
 });

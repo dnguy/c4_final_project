@@ -1,5 +1,5 @@
 <?
-$pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
+$pages= ['home'=>'assets/pages/home.php', 'search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,29 +35,15 @@ $pages= ['home'=>'assets/pages/home.php', 'sell'=>'assets/pages/sell.php', 'acco
             <div class="collapse navbar-collapse navHeaderCollapse navigation">
                 <ul class="nav navbar-nav navigation_items">
                     <li><a href="index.php?page=home">HOME</a></li>
-                    <li><a href="#buy">BUY</a></li>
                     <li><a href="index.php?page=sell">SELL</a></li>
                     <li><a href="#release_dates">RELEASE DATES</a></li>
                     <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="index.php?page=search">SEARCH</a></li>
                 </ul>
             </div>
         </div>
       </div>
 	<div class="container">
-		<div class="col-xs-1 brands">
-			<h3>BRANDS</h3>
-			<p class='nike'>Nike</p>
-      <p>Nike Basketball</p>
-			<p>Adidas</p>
-			<p>Jordan Brand</p>
-			<p>New Balance</p>
-			<p>Asics</p>
-			<p>Reebok</p>
-			<p>Saucony</p>
-			<p>Vans</p>
-			<p>Puma</p>
-			<p>Others</p>
-		</div>
     <section class='listing_page'>
         <? 
                if(!isset($_GET['page'])){
