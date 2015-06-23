@@ -1,4 +1,5 @@
-
+var img_array = [];
+current_image_index = 0;
 function retrieve_info_images(){
 	$.ajax({
 		url: 'index_page_load.php',
@@ -21,9 +22,8 @@ function display_images(response){
 				$('.modal-title').html('');
 				$('.modal-body').html('');
 
-				
-				var modal_img = $('<img>').attr('src', response.items[$(this).attr('index_number')].filepath).addClass('modal_img');
-				var extra_img_container = $('<div>').addClass('col-xs-12 extra_img_container');
+				var image_container = $('<div>').attr('id','image_container');
+				var image_controller = $('<div>').addClass('dots');
 
 				//retrieving extra images for item from database
 				$.ajax({
@@ -32,15 +32,30 @@ function display_images(response){
 					dataType: 'json',
 					method: 'POST',
 					success:function(data_image){
-						window.data_image= data_image;
-						console.log(data_image);
-						for(var i = 0; i< data_image.images.length; i++){
-							var extra_img = $('<img>').attr('src', data_image.images[i].filepath);
-							$(extra_img_container).append(extra_img);
-							}
+						img_array = [];
+						img_array = img_array.concat(data_image.images);
+						for(i=0; i < img_array.length; i++){
+							var img = $('<img>').attr('src', img_array[i].filepath).addClass('additional_images');
+							$('#image_container').append(img);
+			
+							//creating divs which will be used as navigation per image in array
+							var circle_dots = $('<div>').addClass('dot_list');
 
-						}
-				});
+							//placing click handler with the function next_img and will take in the parameter of the index of the image on the DOM
+							$(circle_dots).click(function(){
+							next_img($('.dots').find('div').index($(this)));
+			});
+							$('.dots').append(circle_dots);
+		}
+
+							//function to move all elements except the first image to the right outside of the container
+							initialize();
+							$('.dots').find('div').eq(0).addClass('active_dot');
+
+		}
+
+				
+	});
 
 				//shoe information DOM creation
 				var title = $('<div>').text(response.items[$(this).attr('index_number')].title);
@@ -117,11 +132,49 @@ function display_images(response){
 				});
 
 				$('.modal-title').html(title);
-				$('.modal-body').append(modal_img,extra_img_container, shoe_condition, details, size, price, contact_buyer_button,purchase_item_button, vote_priority_button);
+				$('.modal-body').append(image_container, image_controller, shoe_condition, details, size, price, contact_buyer_button,purchase_item_button, vote_priority_button);
 				$('#myModal').modal('show');
 
 			});
 		}
+}
+function next_img(image_clicked){
+	//checking if the the navigation element clicked is further down the list than the current image
+	//will move current image to left and stage next photo to come in from right
+if(image_clicked > current_image_index){	
+$('.additional_images').eq(current_image_index).animate({
+			left: '-100%',
+		},500);
+		$('.dots').find('div').eq(current_image_index).removeClass('active_dot')
+
+	$('.additional_images').eq(image_clicked).css('left','100%')	
+	$('.additional_images').eq(image_clicked).animate({
+			left: '0',
+		},500);
+	$('.dots').find('div').eq(image_clicked).addClass('active_dot')
+	current_image_index = image_clicked;
+}
+	//checking if the the navigation element clicked is before the current element clicked
+	//will move current image to right and stage next photo to come in from left
+else if(image_clicked < current_image_index){
+	$('.additional_images').eq(current_image_index).animate({
+			left: '100%',
+		},500);
+		$('.dots').find('div').eq(current_image_index).removeClass('active_dot')
+
+	$('.additional_images').eq(image_clicked).css('left','-100%')
+	$('.additional_images').eq(image_clicked).animate({
+			left: '0',
+		},500);
+	$('.dots').find('div').eq(image_clicked).addClass('active_dot')
+	current_image_index = image_clicked;
+	}
+}
+
+function initialize(){
+	for(i = 1; i < img_array.length; i++){
+		$('.additional_images').eq(i).css('left', '100%');
+	}
 }
 
 
