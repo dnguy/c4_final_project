@@ -25,10 +25,11 @@
 			});
 			e.preventDefault();
 		});
-	});
 
-	$('.clear_button').click(function(){
-		console.log('clear button working');
+		$('.clear_button').click(function(){
+			console.log('clear working');
+			$('.title_input, .details_input , .size_input, .price_input, .location_input, .postal_code_input, .file_upload').val('');
+		});
 	});
 
 </script>
@@ -58,7 +59,12 @@
 	<option value="brand-new">Brand New</option>
 	<option value="pre-owned">Pre-owned</option>
 </select><br>
-<input type="file" class="file_upload" name="fileToUpload" id="fileToUpload"><br>
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload">
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload">
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload">
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload">
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload">
+<input type="file" class="file_upload" name="fileToUpload[]" id="fileToUpload"><br>
 <input class="form_button" type="submit" value="Submit" name="submit">
 <button type="button" class="clear_button">Clear Form</button>
 </form>

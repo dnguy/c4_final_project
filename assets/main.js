@@ -20,8 +20,24 @@ function display_images(response){
 			$(img_div).click(function(){
 				$('.modal-title').html('');
 				$('.modal-body').html('');
+
 				
 				var modal_img = $('<img>').attr('src', response.items[$(this).attr('index_number')].filepath).addClass('modal_img');
+				var extra_img_container = $('<div>').addClass('col-xs-12 extra_img_container');
+				$.ajax({
+					url:'item_image_handler.php',
+					data:{postid: response.items[$(this).attr('index_number')].id},
+					dataType: 'json',
+					method: 'POST',
+					success:function(data_image){
+						window.data_image= data_image;
+						console.log(data_image);
+						for(var i = 0; i< data_image.images.length; i++){
+							var extra_img = $('<img>').attr('src', data_image.images[i].filepath);
+							$(extra_img_container).append(extra_img);
+						}
+					}
+				});
 				var title = $('<div>').text(response.items[$(this).attr('index_number')].title);
 				var shoe_condition = $('<div>').text('Condition: ' + response.items[$(this).attr('index_number')].shoe_condition)
 				var details = $('<div>').text('Details: ' + response.items[$(this).attr('index_number')].details);
@@ -96,7 +112,7 @@ function display_images(response){
 				});
 
 				$('.modal-title').html(title);
-				$('.modal-body').append(modal_img,shoe_condition, details, size, price, contact_buyer_button,purchase_item_button, vote_priority_button);
+				$('.modal-body').append(modal_img,extra_img_container, shoe_condition, details, size, price, contact_buyer_button,purchase_item_button, vote_priority_button);
 				$('#myModal').modal('show');
 
 			});
@@ -214,7 +230,7 @@ function display_images(response){
     	success: function(response){
     		if(response.success){
     			console.log('account created');
-    			$('.modal-body').text('Thank You for Logging in. A new account has been created for you. You can now start to buy and sell shoes!');
+    			$('.modal-body').text('Thank You for Logging in. A new account has been created for you. You can now start to posting shoes and contacting sellers!');
     			$('#myModal').modal('show');
     		}
     		else if(!response.success){

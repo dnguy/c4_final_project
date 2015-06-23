@@ -2,12 +2,16 @@
 require('mysql_connect.php');
 session_start();
 
-if(isset($_SESSION['email'])){
-	$output['email'] = $_SESSION['email'];
-	$output['id'] = $_SESSION['id'];
+if($_POST['shoe_description'] == ''){
+	exit();
 }
 
-$query = "SELECT * FROM `items`";
+$_SESSION['shoe_description'] = $_POST['shoe_description'];
+
+$shoe_name = mysql_real_escape_string($_POST['shoe_description']);
+$output['title'] = $shoe_name;
+
+$query = "SELECT * FROM `items` WHERE title LIKE '%$shoe_name%' ";
 
 $result = mysqli_query($con, $query);
 

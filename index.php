@@ -36,9 +36,9 @@ $pages= ['home'=>'assets/pages/home.php', 'search'=>'assets/pages/search.php', '
                 <ul class="nav navbar-nav navigation_items">
                     <li><a href="index.php?page=home">HOME</a></li>
                     <li><a href="index.php?page=sell">SELL</a></li>
-                    <li><a href="#release_dates">RELEASE DATES</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
                     <li><a href="index.php?page=search">SEARCH</a></li>
+                    <li><a href="#release_dates">RELEASE DATES</a></li>
+                    <li><a href="#contact">CONTACT US</a></li>
                 </ul>
             </div>
         </div>

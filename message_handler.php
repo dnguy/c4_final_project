@@ -2,13 +2,7 @@
 session_start();
 require('mysql_connect.php');
 
-if(!isset($_POST['sender'])){
-	$output['success'] = false;
-	$output['errors'] = 'You must be logged in to send messages.';
-	$output_string = json_encode($output);
-	print_r($output_string);
-	exit();
-}
+if(isset($_POST['sender'])){
 
 $query_recipient_email = "SELECT user_email FROM `items` WHERE id='1'";
 $result_email = mysqli_query($con, $query_recipient_email);
@@ -35,4 +29,12 @@ else{
 
 $output_string = json_encode($output);
 print_r($output_string);
+}
+else{
+	$output['success'] = false;
+	$output['errors'] = 'You must be logged in to send messages.';
+	$output_string = json_encode($output);
+	print_r($output_string);
+	exit();
+}
 ?>
