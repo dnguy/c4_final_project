@@ -4,9 +4,9 @@ session_start();
 
 // 
 
-$size = mysql_real_escape_string($_POST['size']);
-$price = mysql_real_escape_string($_POST['price']);
-$shoe_name = mysql_real_escape_string($_SESSION['shoe_description']);
+$size = addslashes($_POST['size']);
+$price = addslashes($_POST['price']);
+$shoe_name = addslashes($_SESSION['shoe_description']);
 
 if($size == '' && $price == ''){
 	exit();

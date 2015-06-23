@@ -24,6 +24,8 @@ function display_images(response){
 				
 				var modal_img = $('<img>').attr('src', response.items[$(this).attr('index_number')].filepath).addClass('modal_img');
 				var extra_img_container = $('<div>').addClass('col-xs-12 extra_img_container');
+
+				//retrieving extra images for item from database
 				$.ajax({
 					url:'item_image_handler.php',
 					data:{postid: response.items[$(this).attr('index_number')].id},
@@ -35,9 +37,12 @@ function display_images(response){
 						for(var i = 0; i< data_image.images.length; i++){
 							var extra_img = $('<img>').attr('src', data_image.images[i].filepath);
 							$(extra_img_container).append(extra_img);
+							}
+
 						}
-					}
 				});
+
+				//shoe information DOM creation
 				var title = $('<div>').text(response.items[$(this).attr('index_number')].title);
 				var shoe_condition = $('<div>').text('Condition: ' + response.items[$(this).attr('index_number')].shoe_condition)
 				var details = $('<div>').text('Details: ' + response.items[$(this).attr('index_number')].details);

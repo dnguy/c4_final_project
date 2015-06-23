@@ -1,10 +1,10 @@
 <?php 
 session_start();
 require('mysql_connect.php');
-$first_name = mysql_real_escape_string($_POST['first_name']);
-$last_name = mysql_real_escape_string($_POST['last_name']);
-$id = mysql_real_escape_string($_POST['id']);
-$email = mysql_real_escape_string($_POST['email']);
+$first_name = addslashes($_POST['first_name']);
+$last_name = addslashes($_POST['last_name']);
+$id = addslashes($_POST['id']);
+$email = addslashes($_POST['email']);
 
 $_SESSION['id'] = $id;
 $_SESSION['name'] = $first_name . "&nbsp" .$last_name;

@@ -24,10 +24,10 @@ body.div {
     margin-top: 2%;
     height: 38px;
     margin-bottom: 2%;
-
 }
-.search_button{
-	margin-top: 2%;
+
+.search_button {
+    margin-top: 2%;
 }
 
 .navigation {
@@ -41,7 +41,7 @@ body.div {
 }
 
 .navbar-nav>li>a {
-	transition: color 0.5s ease;
+    transition: color 0.5s ease;
     color: #aaaaaa;
 }
 
@@ -54,6 +54,7 @@ body.div {
     width: 165px;
     height: 145px;
 }
+
 .account_container > div {
     margin-right: 8%;
     margin-bottom: 2%;
@@ -65,8 +66,11 @@ body.div {
 }
 
 .modal_img {
-    width: 540px;
-    height: 350px;
+    width: 450px;
+    height: 315px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #status {
@@ -77,27 +81,34 @@ body.div {
     font-size: 20px;
     padding: 0;
 }
-.nav>li>a:focus, .nav>li>a:hover{
-	background:none;
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    background: none;
 }
-.nav>li>a:hover{
-	color: black;
+
+.nav>li>a:hover {
+    color: black;
 }
+
 .brands > p {
-	transition: font-size 0.2s ease;
+    transition: font-size 0.2s ease;
 }
+
 .brands > p:hover {
-	font-size: 19px;
-	cursor: pointer;
+    font-size: 19px;
+    cursor: pointer;
 }
-.brand_title{
-	text-transform: uppercase;
-	font-size: 30px;
-	font-weight: 800;
+
+.brand_title {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 800;
 }
-.extra_img_container > img{
-	width:100px;
-	height:80px;
-	margin-right:1%;
-	margin-top: 2%;
+
+.extra_img_container > img {
+    width: 100px;
+    height: 80px;
+    margin-right: 1%;
+    margin-top: 2%;
 }

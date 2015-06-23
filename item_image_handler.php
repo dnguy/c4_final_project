@@ -2,7 +2,7 @@
 require('mysql_connect.php');
 session_start();
 
-$postid = mysql_real_escape_string($_POST['postid']);
+$postid = addslashes($_POST['postid']);
 
 $query = "SELECT filepath FROM `item_images` WHERE post_id='$postid' ";
 

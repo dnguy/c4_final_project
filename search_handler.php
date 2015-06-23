@@ -8,7 +8,7 @@ if($_POST['shoe_description'] == ''){
 
 $_SESSION['shoe_description'] = $_POST['shoe_description'];
 
-$shoe_name = mysql_real_escape_string($_POST['shoe_description']);
+$shoe_name = addslashes($_POST['shoe_description']);
 $output['title'] = $shoe_name;
 
 $query = "SELECT * FROM `items` WHERE title LIKE '%$shoe_name%' ";

@@ -9,8 +9,8 @@ if(!isset($_POST['user_id'])){
 	exit();
 }
 
-$user_id = mysql_real_escape_string($_POST['user_id']);
-$post_id = mysql_real_escape_string($_POST['post_id']);
+$user_id = addslashes($_POST['user_id']);
+$post_id = addslashes($_POST['post_id']);
 
 $query_check = "SELECT * FROM `item_popularity` WHERE user_id='$user_id' AND post_id='$post_id'";
 

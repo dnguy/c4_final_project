@@ -1,7 +1,7 @@
 <?php 
 require('mysql_connect.php');
 session_start();
-$brand = mysql_real_escape_string($_POST['brand']);
+$brand = addslashes($_POST['brand']);
 
 $query = "SELECT * FROM `items` WHERE brand='$brand'";
 

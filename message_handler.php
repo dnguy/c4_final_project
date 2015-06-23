@@ -10,10 +10,10 @@ $result_email = mysqli_query($con, $query_recipient_email);
 $row = mysqli_fetch_assoc($result_email);
 $email= $row;
 
-$sender = mysql_real_escape_string($_POST['sender']);
-$subject = mysql_real_escape_string($_POST['subject']);
-$message = mysql_real_escape_string($_POST['message']);
-$user_email = mysql_real_escape_string($email['user_email']);
+$sender = addslashes($_POST['sender']);
+$subject = addslashes($_POST['subject']);
+$message = addslashes($_POST['message']);
+$user_email = addslashes($email['user_email']);
 
 
 $query = "INSERT INTO `kicks`.`messages` (`id`, `recipient`, `sender`, `subject`, `message`, `timestamp`) VALUES (NULL, '$user_email', '$sender', '$subject', '$message', CURRENT_TIMESTAMP);";
