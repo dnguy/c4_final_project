@@ -1,7 +1,6 @@
 <?php 
 session_start();
 require('mysql_connect.php');
-
 if(isset($_POST['sender'])){
 
 $query_recipient_email = "SELECT user_email FROM `items` WHERE id='1'";
@@ -23,10 +22,6 @@ $result = mysqli_query($con, $query);
 if(mysqli_affected_rows($con) > 0){
 	$output['success'] = true;
 }
-else{
-	$output['success'] = false;
-}
-
 $output_string = json_encode($output);
 print_r($output_string);
 }

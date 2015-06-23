@@ -5,6 +5,9 @@ session_start();
 if($_POST['shoe_description'] == ''){
 	exit();
 }
+if(isset($_SESSION['email'])){
+	$output['email'] = $_SESSION['email'];
+}
 
 $_SESSION['shoe_description'] = $_POST['shoe_description'];
 

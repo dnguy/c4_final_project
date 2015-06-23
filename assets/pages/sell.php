@@ -21,6 +21,9 @@
 						$('.title_input, .details_input , .size_input, .price_input, .location_input, .postal_code_input, .file_upload').val('');
 
 					}
+					if(!data.success){
+						console.log(data.errors);
+					}
 				}
 			});
 			e.preventDefault();

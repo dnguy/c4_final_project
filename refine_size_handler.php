@@ -7,6 +7,9 @@ session_start();
 $size = addslashes($_POST['size']);
 $price = addslashes($_POST['price']);
 $shoe_name = addslashes($_SESSION['shoe_description']);
+if(isset($_SESSION['email'])){
+	$output['email'] = $_SESSION['email'];
+}
 
 if($size == '' && $price == ''){
 	exit();
