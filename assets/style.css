@@ -15,7 +15,7 @@ body.div {
 
 .top_header {
     background: black;
-    height: 30px;
+    height: 23px;
     border-bottom: 1px solid rgb(177, 177, 177);
     box-shadow: 1px 2px 1px grey;
 }
@@ -98,7 +98,7 @@ body.div {
     font-weight: 800;
 }
 
-#image_container {
+#image_container, .modal_img {
     width: 450px;
     height: 315px;
     position: relative;
@@ -131,4 +131,15 @@ body.div {
 
 .active_dot {
     background: black;
+}
+#file_upload > input, select, textarea{
+	margin-bottom:2%;
+	border-radius: 7px;
+}
+#file_upload > .file_upload {
+	margin-bottom: 0%;
+}
+.confirm_delete{
+    background: red;
+    margin-top: 2%;
 }

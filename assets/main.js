@@ -1,6 +1,5 @@
 var img_array = [];
-current_image_index = 0;
-
+var current_image_index = 0;
 function retrieve_info_images() {
     $.ajax({
         url: 'index_page_load.php',
@@ -41,6 +40,7 @@ function display_images(response) {
                 method: 'POST',
                 success: function(data_image) {
                     img_array = [];
+                    current_image_index = 0;
                     img_array = img_array.concat(data_image.images);
                     for (i = 0; i < img_array.length; i++) {
                         var img = $('<img>').attr('src', img_array[i].filepath).addClass('additional_images');
@@ -211,17 +211,17 @@ function statusChangeCallback(response) {
         testAPI();
         API_call();
         $('.login_button').hide();
-        var logout_button = $('<button>').attr('type', 'button').addClass('logout_button');
-        var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
-        var account_button = $('<button>').attr('type', 'button').addClass('account_button');
-        var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
-        $(account_button).append(link_to_account);
-        $(logout_button).append(link_to_logout);
-        $(logout_button).click(function() {
-            logout();
-        });
+        // var logout_button = $('<button>').attr('type', 'button').addClass('logout_button');
+        // var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
+        // var account_button = $('<button>').attr('type', 'button').addClass('account_button');
+        // var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
+        // $(account_button).append(link_to_account);
+        // $(logout_button).append(link_to_logout);
+        // $(logout_button).click(function() {
+        //     logout();
+        // });
 
-        $('.logout_container').append(logout_button, account_button);
+        // $('.logout_container').append(logout_button, account_button);
 
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
@@ -288,9 +288,18 @@ function testAPI() {
     FB.api('/me', function(response) {
         $('#status').html('');
         console.log('Successful login for: ' + response.name);
-        var user_icon = $('<i>').addClass('fa fa-user fa-2x col-xs-2');
-        var name_div = $('<div>').text(response.name).addClass('col-xs-8 user_name');
-        $('#status').append(user_icon, name_div);
+        var user_icon = $('<i>').addClass('fa fa-user col-xs-10').text(response.name);
+        var logout_button = $('<button>').attr('type', 'button').addClass('logout_button');
+        var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
+        var account_button = $('<button>').attr('type', 'button').addClass('account_button');
+        var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
+        $(account_button).append(link_to_account);
+        $(logout_button).append(link_to_logout);
+        $(logout_button).click(function() {
+            logout();
+        });
+        $(user_icon).append(logout_button, account_button)
+        $('#status').append(user_icon);
     });
 }
 

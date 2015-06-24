@@ -1,5 +1,6 @@
 <?php 
 session_start();
+if(isset($_SESSION['id'])){
 require('mysql_connect.php');
 
 foreach($_POST as $k => $v){
@@ -127,5 +128,13 @@ if(mysqli_affected_rows($con) > 0){
 
 $output_string = json_encode($output);
 print_r($output_string);
+}
+else{
+	$output['success'] = false;
+	$output['errors'] = 'You must be logged in to upload items.';
+	$output_string = json_encode($output);
+	print_r($output_string);
+	exit();
+}
 
 ?>

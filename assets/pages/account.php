@@ -38,6 +38,39 @@ for(var i = 0; i < user_item_array.length; i++){
 			$(img_div).append(img, edit_item_button, delete_item_button);
 			$('.account_container').append(img_div);
 
+			$(delete_item_button).click(function(){
+				$('.modal-title').html('');
+				$('.modal-body').html('');
+
+				var modal_img_delete = $('<img>').attr('src', user_item_array[$(this).attr('index_number')].filepath).addClass('modal_img');
+				var delete_title = $('<div>').html('Are you sure you would like to delete ' +'<strong>'+user_item_array[$(this).attr('index_number')].title +'<strong>?');
+				var confirm_delete_button = $('<button>').attr({type: 'button', index_number:$(this).attr('index_number') }).addClass('col-xs-4 col-xs-offset-4 confirm_delete').text('Delete');
+
+				$(confirm_delete_button).click(function(){
+					$.ajax({
+						url: 'delete_item_handler.php',
+						data: {postid: user_item_array[$(this).attr('index_number')].id},
+						dataType: 'json',
+						method: 'POST',
+						success: function(response){
+							if(response.success){
+								$('.modal-title').html('');
+								$('.modal-body').html('');
+								$('.modal-body').html('Your item has been deleted. Refresh page to reflect changes.')
+								$('#myModal').modal('show');
+							}
+						}
+					});
+				});
+
+				$('.modal-body').append(delete_title, modal_img_delete, confirm_delete_button);
+				$('.modal-title').html('Delete item');
+				$('#myModal').modal('show');
+
+
+
+			});
+
 			$(edit_item_button).click(function(){
 				$('.modal-title').html('');
 				$('.modal-body').html('');

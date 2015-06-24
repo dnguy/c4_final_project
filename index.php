@@ -18,7 +18,7 @@ $pages= ['home'=>'assets/pages/home.php', 'search'=>'assets/pages/search.php', '
    <fb:login-button scope="public_profile,email" class="col-xs-1 login_button" onlogin="checkLoginState();">
 </fb:login-button>
 
-<div class="col-xs-3" id="status">
+<div class="col-xs-6" id="status">
 </div> 
 <div class='logout_container'>
 </div>

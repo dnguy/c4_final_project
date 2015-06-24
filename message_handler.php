@@ -3,7 +3,9 @@ session_start();
 require('mysql_connect.php');
 if(isset($_POST['sender'])){
 
-$query_recipient_email = "SELECT user_email FROM `items` WHERE id='1'";
+$postid = addslashes($_POST['postid']);
+
+$query_recipient_email = "SELECT user_email FROM `items` WHERE id='$postid'";
 $result_email = mysqli_query($con, $query_recipient_email);
 
 $row = mysqli_fetch_assoc($result_email);
