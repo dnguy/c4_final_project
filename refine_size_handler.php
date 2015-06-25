@@ -15,15 +15,15 @@ if($size == '' && $price == ''){
 	exit();
 }
 else if($size !== '' && $price !== ''){
-	$query = "SELECT * FROM `items` WHERE size='$size' AND price<='$price' AND title LIKE '%$shoe_name%'";
+	$query = "SELECT * FROM `items` WHERE size='$size' AND price<='$price' AND MATCH(title) AGAINST ('$shoe_name' IN BOOLEAN MODE)";
 	$output['title']= $shoe_name.' / size: '.$size.' / Max Price:$'.$price;
 }
 else if($size != ''){
-	$query = "SELECT * FROM `items` WHERE size='$size' AND title LIKE '%$shoe_name%'";
+	$query = "SELECT * FROM `items` WHERE size='$size' AND MATCH(title) AGAINST ('$shoe_name' IN BOOLEAN MODE)";
 	$output['title']= $shoe_name.' / size: '.$size;
 }
 else if($price != ''){
-	$query = "SELECT * FROM `items` WHERE price<='$price' AND title LIKE '%$shoe_name%'";
+	$query = "SELECT * FROM `items` WHERE price<='$price' AND MATCH(title) AGAINST ('$shoe_name' IN BOOLEAN MODE)";
 	$output['title']= $shoe_name.' / Max Price: $'.$price;
 }
 
