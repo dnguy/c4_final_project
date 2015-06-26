@@ -293,12 +293,13 @@ function testAPI() {
         var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
         var account_button = $('<button>').attr('type', 'button').addClass('account_button');
         var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
+        var messages_button = $('<button>').addClass('btn btn-primary message_notification').attr('type','button').html('<a href="index.php?page=messages">Messages</a><span class="badge">0</span>');
         $(account_button).append(link_to_account);
         $(logout_button).append(link_to_logout);
         $(logout_button).click(function() {
             logout();
         });
-        $(user_icon).append(logout_button, account_button)
+        $(user_icon).append(messages_button,account_button, logout_button)
         $('#status').append(user_icon);
     });
 }

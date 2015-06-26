@@ -1,5 +1,5 @@
 <?
-$pages= ['home'=>'assets/pages/home.php', 'search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
+$pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +18,7 @@ $pages= ['home'=>'assets/pages/home.php', 'search'=>'assets/pages/search.php', '
    <fb:login-button scope="public_profile,email" class="col-xs-1 login_button" onlogin="checkLoginState();">
 </fb:login-button>
 
-<div class="col-xs-6" id="status">
+<div class="col-xs-8" id="status">
 </div> 
 <div class='logout_container'>
 </div>

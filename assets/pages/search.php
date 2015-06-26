@@ -7,6 +7,7 @@
 				method:'POST',
 				dataType: 'json',
 				success:function(response){
+					console.log($('.search_input').serialize());
 					$('.item_container').html('');
 					var search_title = $('<h4>').text('Search Results For: ' + response.title);
 					$('.item_container').append(search_title);

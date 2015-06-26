@@ -143,3 +143,27 @@ body.div {
     background: red;
     margin-top: 2%;
 }
+.message_notification{
+    padding:0px;
+    margin-left: 3%;
+}
+.message_notification > a{
+    color: white;
+    text-decoration: none;
+}
+.user_message_background{
+    background: rgb(29, 150, 255);
+    color: white;
+}
+.sender_message_background{
+    background:rgb(226, 225, 231);
+}
+.thread_message_container{
+    margin: 1% 0;
+    border-radius: 6px;
+}
+.sender_name{
+    background: rgb(226, 225, 231);
+    border-radius:7px;
+    padding:3px;
+}

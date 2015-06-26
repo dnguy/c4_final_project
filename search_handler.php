@@ -14,7 +14,7 @@ $_SESSION['shoe_description'] = $_POST['shoe_description'];
 $shoe_name = addslashes($_POST['shoe_description']);
 $output['title'] = $shoe_name;
 
-$query = "SELECT * FROM `items` WHERE MATCH(title) AGAINST ('$shoe_name' IN BOOLEAN MODE) ";
+$query = "SELECT * FROM `items` WHERE MATCH(title) AGAINST ('$shoe_name' IN BOOLEAN MODE)";
 
 $result = mysqli_query($con, $query);
 

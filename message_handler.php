@@ -17,11 +17,18 @@ $message = addslashes($_POST['message']);
 $user_email = addslashes($email['user_email']);
 
 
-$query = "INSERT INTO `kicks`.`messages` (`id`, `recipient`, `sender`, `subject`, `message`, `timestamp`) VALUES (NULL, '$user_email', '$sender', '$subject', '$message', CURRENT_TIMESTAMP);";
+$query = "INSERT INTO `kicks`.`messages` (`id`, `recipient`, `sender`, `subject`, `message`, `timestamp`, `status`, `thread_id`) VALUES (NULL, '$user_email', '$sender', '$subject', '$message', CURRENT_TIMESTAMP, '1','');";
 
 $result = mysqli_query($con, $query);
 
+$thread_id = mysqli_insert_id($con);
+
+
+
 if(mysqli_affected_rows($con) > 0){
+	//insert into thread_id the current message id
+	$query_change_image_name = "UPDATE `messages` SET thread_id='$thread_id' WHERE id='$thread_id'";
+	$result_name_change = mysqli_query($con, $query_change_image_name);
 	$output['success'] = true;
 }
 $output_string = json_encode($output);
