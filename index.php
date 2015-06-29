@@ -1,4 +1,4 @@
-<?
+<?php
 $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
