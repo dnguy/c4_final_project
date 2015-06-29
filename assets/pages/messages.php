@@ -81,14 +81,17 @@ function display_thread_messages(){
 		$('.messages').append(messages_link, thread_subject, thread_sender_name);
 		for(i=0; i < user_messages.messages.length ; i++){
 			if($(this).attr('thread_id') == user_messages.messages[i].thread_id){
-				var thread_message_div_container = $('<div>').addClass('col-xs-12 thread_message_container');
+				var thread_message_div_container = $('<div>').addClass('thread_message_container');
 				var thread_message_div = $('<div>').html(user_messages.messages[i].message).addClass('col-xs-6');
 				var thread_message_timestamp = $('<div>').html(user_messages.messages[i].timestamp).addClass('col-xs-6 pull-right');
 				if(user_messages.messages[i].recipient == user_messages.email){
-					$(thread_message_div_container).addClass('sender_message_background')
+					$(thread_message_div_container).addClass('sender_message_background');
+					$(thread_message_div_container).addClass('col-xs-6 col-xs-offset-2');
 				}
 				else{
-					$(thread_message_div_container).addClass('user_message_background')
+					$(thread_message_div_container).addClass('user_message_background');
+					$(thread_message_div_container).addClass('col-xs-6 col-xs-offset-4');
+
 				}
 				thread_message_div_container.append(thread_message_div, thread_message_timestamp);
 

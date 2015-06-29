@@ -53,7 +53,7 @@
 	<option value="vans">Vans</option>
 	<option value="puma">Puma</option>
 	<option value="others">Others</option>
-</select><br>
+</select>
 <input type="text" class="title_input col-xs-6 col-xs-offset-3" name="title" placeholder="Title">
 <textarea type="text" class="details_input col-xs-6 col-xs-offset-3" name="details" placeholder="Details"></textarea>
 <input type="text" class="size_input col-xs-6 col-xs-offset-3" name="size" placeholder="Size">

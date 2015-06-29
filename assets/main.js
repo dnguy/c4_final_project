@@ -13,14 +13,18 @@ function retrieve_info_images() {
 };
 
 function display_images(response) {
+    console.log(response.items);
     for (var i = 0; i < response.items.length; i++) {
-        var img_div = $('<div>').addClass('col-xs-2').attr({
+        var img_div = $('<div>').addClass('col-xs-2 image_container').attr({
             user_id: response.items[i].user_id,
             id: response.items[i].id,
             index_number: i
         });
+        var img_container = $('<div>');
         var img = $('<img>').attr('src', response.items[i].filepath);
-        $(img_div).append(img);
+        var item_title = $('<div>').text('$' + response.items[i].price);
+        $(img_container).append(img);
+        $(img_div).append(img_container, item_title);
         $('.item_container').append(img_div);
 
         $(img_div).click(function() {

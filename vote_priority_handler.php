@@ -19,7 +19,7 @@ $result_check = mysqli_query($con, $query_check);
 
 if(mysqli_num_rows($result_check) > 0){
 	$output['success'] = false;
-	$output['errors'] = 'This photo has already been liked';
+	$output['errors'] = 'This item has already been liked';
 	$output_string = json_encode($output);
 	print_r($output_string);
 	exit();

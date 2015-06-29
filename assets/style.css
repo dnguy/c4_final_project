@@ -50,9 +50,18 @@ body.div {
     margin-bottom: 2%;
 }
 
-.item_container > div > img {
-    width: 165px;
-    height: 145px;
+.image_container > div > img {
+    width: 140px;
+    height: 130px;
+    transition: all .3s ease;
+}
+.image_container > div {
+    overflow: hidden;
+    width: 140px;
+}
+.image_container > div > img:hover{
+    transform: scale(1.1);
+    opacity: .7;
 }
 
 .account_container > div {
@@ -159,7 +168,8 @@ body.div {
     background:rgb(226, 225, 231);
 }
 .thread_message_container{
-    margin: 1% 0;
+    margin-bottom: 1%;
+    margin-top: 1%;
     border-radius: 6px;
 }
 .sender_name{

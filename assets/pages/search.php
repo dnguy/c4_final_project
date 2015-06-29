@@ -16,8 +16,10 @@
 					var refine_search_title = $('<h4>').text('Refine Search');
 					var refine_size_input = $('<input>').attr('placeholder', 'Size').addClass('refine_size_input');
 					var refine_price_input = $('<input>').attr('placeholder', 'Max Price').addClass('refine_price_input');
+					var refine_zipcode_input = $('<input>').attr('placeholder','Zip Code').addClass('refine_zipcode_input');
+					var refine_zipcode_miles = $('<select>').attr('name','miles').html('<option value="25">25 Miles</option><option value="50">50 Miles</option><option value="100">100 Miles</option>')
 					var refine_button = $('<button>').attr({type: 'button'}).text('Search')
-					$('.refine_search').append(refine_search_title, refine_size_input, refine_price_input, refine_button);
+					$('.refine_search').append(refine_search_title, refine_size_input, refine_price_input, refine_zipcode_input,refine_zipcode_miles, refine_button);
 
 					$(refine_button).click(function(){
 						$.ajax({
