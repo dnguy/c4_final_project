@@ -45,7 +45,7 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
       </div>
 	<div class="container">
     <section class='listing_page'>
-        <? 
+        <?php
                if(!isset($_GET['page'])){
                 $_GET['page']= 'home';
                 include($pages[$_GET['page']]);
