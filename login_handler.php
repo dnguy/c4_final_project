@@ -1,6 +1,7 @@
 <?php 
 session_start();
 require('mysql_connect.php');
+$output['success']=false;
 $first_name = addslashes($_POST['first_name']);
 $last_name = addslashes($_POST['last_name']);
 $id = addslashes($_POST['id']);
