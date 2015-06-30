@@ -37,7 +37,7 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
                     <li><a href="index.php?page=home">HOME</a></li>
                     <li><a href="index.php?page=sell">SELL</a></li>
                     <li><a href="index.php?page=search">SEARCH</a></li>
-                    <li><a href="#release_dates">RELEASE DATES</a></li>
+                   <!--  <li><a href="#release_dates">RELEASE DATES</a></li> -->
                     <li><a href="#contact">CONTACT US</a></li>
                 </ul>
             </div>
