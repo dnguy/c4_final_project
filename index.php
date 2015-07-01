@@ -30,7 +30,7 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
     <div class="col-xs-12">
           <div class="navbar container">
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-                <i class="fa fa-bars"></i>
+                <i class="fa fa-bars fa-2x"></i>
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse navigation">
                 <ul class="nav navbar-nav navigation_items">

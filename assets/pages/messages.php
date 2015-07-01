@@ -23,23 +23,31 @@ if(mysqli_num_rows($result) > 0){
 <script>
 var user_messages = <?php echo json_encode($output); ?>;
 console.log(user_messages);
-	var message_div = $('<div>').addClass('col-xs-12 well').attr('thread_id', user_messages.messages[0].thread_id).attr('index_number','0');
-	var message_sender = $('<div>').text('From: ' + user_messages.messages[0].sender).addClass('col-xs-6');
-	var message_subject = $('<div>').text('Subject: ' + user_messages.messages[0].subject).addClass('col-xs-6');
-
-		$(message_div).click(display_thread_messages);
-
-		$(message_div).append(message_sender, message_subject);
-		$('.messages').append(message_div);
-
+var duplicate_message_check = [user_messages.messages[0].thread_id];
+var display_messages = [user_messages.messages[0]];
 for(var i = 1; i < user_messages.messages.length; i++){
-	if(user_messages.messages[i].thread_id == user_messages.messages[i-1].thread_id){
+	console.log($.inArray(user_messages.messages[i].thread_id,duplicate_message_check));
+	if($.inArray(user_messages.messages[i].thread_id,duplicate_message_check) == 0){
 		continue;
 	}
 	else{
-	var message_div = $('<div>').addClass('col-xs-12 well').attr('thread_id', user_messages.messages[i].thread_id).attr('index_number', i);
-	var message_sender = $('<div>').text('From: ' + user_messages.messages[i].sender).addClass('col-xs-6');
-	var message_subject = $('<div>').text('Subject: ' + user_messages.messages[i].subject).addClass('col-xs-6');
+		display_messages.push(user_messages.messages[i]);
+	}
+}
+// 	var message_div = $('<div>').addClass('col-xs-12 well').attr('thread_id', user_messages.messages[0].thread_id).attr('index_number','0');
+// 	var message_sender = $('<div>').text('From: ' + user_messages.messages[0].sender).addClass('col-xs-6');
+// 	var message_subject = $('<div>').text('Subject: ' + user_messages.messages[0].subject).addClass('col-xs-6');
+
+// 		$(message_div).click(display_thread_messages);
+
+// 		$(message_div).append(message_sender, message_subject);
+// 		$('.messages').append(message_div);
+console.log(display_messages);
+for(var i = 0; i < display_messages.length; i++){
+
+	var message_div = $('<div>').addClass('col-xs-12 well').attr('thread_id', display_messages[i].thread_id).attr('index_number', i);
+	var message_sender = $('<div>').text('From: ' + display_messages[i].sender).addClass('col-xs-6');
+	var message_subject = $('<div>').text('Subject: ' + display_messages[i].subject).addClass('col-xs-6');
 
 	$(message_div).click(display_thread_messages);
 
@@ -47,13 +55,12 @@ for(var i = 1; i < user_messages.messages.length; i++){
 	$('.messages').append(message_div);
 	}
 	
-}
 
 function display_thread_messages(){
 		$('.messages').html('');
 		var messages_link = $('<a>').attr('href', 'index.php?page=messages').text('Back to inbox');
-		var thread_subject = $('<div>').html('Subject: ' + user_messages.messages[$(this).attr('index_number')].subject);
-		var thread_sender_name = $('<div>').html('From: ' + '<span class="sender_name">'+user_messages.messages[$(this).attr('index_number')].sender+'</span>');
+		var thread_subject = $('<div>').html('Subject: ' + display_messages[$(this).attr('index_number')].subject);
+		var thread_sender_name = $('<div>').html('From: ' + '<span class="sender_name">'+display_messages[$(this).attr('index_number')].sender+'</span>');
 		var reply_input = $('<textarea>').attr({name: 'reply_message', placeholder: 'Reply..'}).addClass('col-xs-10 col-xs-offset-1');
 		var submit_reply = $('<button>').attr('type','button').addClass('col-xs-2 col-xs-offset-5').text('Send').attr({index_number: $(this).attr('index_number'), thread_id: $(this).attr('thread_id')})
 

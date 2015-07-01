@@ -44,11 +44,11 @@
 	});
 </script>
 <div class="col-xs-12">
-<input type='text' name='search' class="search_input col-xs-5 col-xs-offset-3" placeholder="Search by shoe name">
+<input type='text' name='search' class="search_input col-xs-10 col-sm-5 col-sm-offset-3" placeholder="Search by shoe name">
 <i class="fa fa-search col-xs-1 fa-2x search_button"></i>
 </div>
 <div class="col-xs-1 refine_search"></div>
-<div class="col-xs-10 col-xs-offset-1 item_container">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 item_container">
 </div>
 
 

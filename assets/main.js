@@ -15,7 +15,7 @@ function retrieve_info_images() {
 function display_images(response) {
     console.log(response.items);
     for (var i = 0; i < response.items.length; i++) {
-        var img_div = $('<div>').addClass('col-xs-2 image_container').attr({
+        var img_div = $('<div>').addClass('col-sm-2 col-xs-5 image_container').attr({
             user_id: response.items[i].user_id,
             id: response.items[i].id,
             index_number: i
@@ -166,11 +166,11 @@ function next_img(image_clicked) {
     //will move current image to left and stage next photo to come in from right
     if (image_clicked > current_image_index) {
         $('.additional_images').eq(current_image_index).animate({
-            left: '-100%',
+            left: '-120%',
         }, 500);
         $('.dots').find('div').eq(current_image_index).removeClass('active_dot')
 
-        $('.additional_images').eq(image_clicked).css('left', '100%')
+        $('.additional_images').eq(image_clicked).css('left', '120%')
         $('.additional_images').eq(image_clicked).animate({
             left: '0',
         }, 500);
@@ -181,11 +181,11 @@ function next_img(image_clicked) {
     //will move current image to right and stage next photo to come in from left
     else if (image_clicked < current_image_index) {
         $('.additional_images').eq(current_image_index).animate({
-            left: '100%',
+            left: '120%',
         }, 500);
         $('.dots').find('div').eq(current_image_index).removeClass('active_dot')
 
-        $('.additional_images').eq(image_clicked).css('left', '-100%')
+        $('.additional_images').eq(image_clicked).css('left', '-120%')
         $('.additional_images').eq(image_clicked).animate({
             left: '0',
         }, 500);
@@ -196,7 +196,7 @@ function next_img(image_clicked) {
 
 function initialize() {
     for (i = 1; i < img_array.length; i++) {
-        $('.additional_images').eq(i).css('left', '100%');
+        $('.additional_images').eq(i).css('left', '120%');
     }
 }
 

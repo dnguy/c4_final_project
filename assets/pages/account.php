@@ -1,7 +1,7 @@
 <?php 
 session_start();
 ?>
-<div class="col-xs-10 col-xs-offset-1 account_container">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 account_container">
 <div class="col-xs-12"><h1>ACCOUNT<h1></div>
 <div class="col-xs-12">
 <?php 
@@ -31,7 +31,7 @@ if(mysqli_num_rows($result) > 0){
 <script>
 var user_item_array = <?php echo json_encode($output); ?>;
 for(var i = 0; i < user_item_array.length; i++){
-			var img_div = $('<div>').addClass('col-xs-2').attr({user_id: user_item_array[i].user_id, id: user_item_array[i].id, index_number: i});
+			var img_div = $('<div>').addClass('col-sm-2 col-xs-5').attr({user_id: user_item_array[i].user_id, id: user_item_array[i].id, index_number: i});
 			var img = $('<img>').attr('src', user_item_array[i].filepath);
 			var edit_item_button = $('<button>').attr('type', 'submit').text('Edit').attr('index_number', i);
 			var delete_item_button = $('<button>').attr('type', 'submit').text('Delete').attr('index_number', i);

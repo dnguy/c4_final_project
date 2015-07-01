@@ -3,7 +3,7 @@ $(document).ready(function(){
 	retrieve_info_images();
 });
 </script>
-		<div class="col-xs-1 brands">
+		<div class="hidden-xs col-xs-1 brands">
       <h3>BRANDS</h3>
       <p class='nike'>Nike</p>
       <p>Nike Basketball</p>
@@ -17,5 +17,5 @@ $(document).ready(function(){
       <p>Puma</p>
       <p>Others</p>
     </div>
-		<div class="col-xs-10 col-xs-offset-1 item_container">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 item_container">
 		</div>

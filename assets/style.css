@@ -24,6 +24,7 @@ body.div {
     margin-top: 2%;
     height: 38px;
     margin-bottom: 2%;
+    border: 1px solid black;
 }
 
 .search_button {
@@ -55,11 +56,13 @@ body.div {
     height: 130px;
     transition: all .3s ease;
 }
+
 .image_container > div {
     overflow: hidden;
     width: 140px;
 }
-.image_container > div > img:hover{
+
+.image_container > div > img:hover {
     transform: scale(1.1);
     opacity: .7;
 }
@@ -107,7 +110,8 @@ body.div {
     font-weight: 800;
 }
 
-#image_container, .modal_img {
+#image_container,
+.modal_img {
     width: 450px;
     height: 315px;
     position: relative;
@@ -135,45 +139,76 @@ body.div {
 }
 
 .dots {
-   text-align: center;
+    text-align: center;
 }
 
 .active_dot {
     background: black;
 }
-#file_upload > input, select, textarea{
-	margin-bottom:2%;
-	border-radius: 7px;
+
+#file_upload > input,
+select,
+textarea {
+    margin-bottom: 2%;
+    border-radius: 7px;
 }
+
 #file_upload > .file_upload {
-	margin-bottom: 0%;
+    margin-bottom: 0%;
 }
-.confirm_delete{
+
+.confirm_delete {
     background: red;
     margin-top: 2%;
 }
-.message_notification{
-    padding:0px;
+
+.message_notification {
+    padding: 0px;
     margin-left: 3%;
 }
-.message_notification > a{
+
+.message_notification > a {
     color: white;
     text-decoration: none;
 }
-.user_message_background{
+
+.user_message_background {
     background: rgb(29, 150, 255);
     color: white;
 }
-.sender_message_background{
-    background:rgb(226, 225, 231);
+
+.sender_message_background {
+    background: rgb(226, 225, 231);
 }
-.thread_message_container{
+
+.thread_message_container {
     margin-bottom: 1%;
     margin-top: 1%;
     border-radius: 6px;
 }
-.sender_name{
+
+.sender_name {
     background: rgb(226, 225, 231);
-    border-radius:7px;
-    padding:3px;
+    border-radius: 7px;
+    padding: 3px;
+}
+
+@media (max-width: 480px) {
+    .image_container > div > img {
+        width: 100px;
+        height: 115px;
+    }
+    .header_title {
+        font-size: 39px;
+        text-align: center;
+    }
+    .navbar-toggle {
+        float: none;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .additional_images, #image_container{
+        width: 225px;
+        height: 200px;
+    }
 }
