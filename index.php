@@ -1,5 +1,5 @@
 <?php
-$pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
+$pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','contact'=>'assets/pages/contact.php','search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
                     <li><a href="index.php?page=sell">SELL</a></li>
                     <li><a href="index.php?page=search">SEARCH</a></li>
                    <!--  <li><a href="#release_dates">RELEASE DATES</a></li> -->
-                    <li><a href="#contact">CONTACT US</a></li>
+                    <li><a href="index.php?page=contact">CONTACT US</a></li>
                 </ul>
             </div>
         </div>

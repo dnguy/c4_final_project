@@ -192,6 +192,10 @@ textarea {
     border-radius: 7px;
     padding: 3px;
 }
+.contact_title{
+    font-size: 35px;
+    font-weight: 900;
+}
 
 @media (max-width: 480px) {
     .image_container > div > img {
