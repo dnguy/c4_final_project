@@ -292,21 +292,33 @@ function testAPI() {
     FB.api('/me', function(response) {
         $('#status').html('');
         console.log('Successful login for: ' + response.name);
-        var user_icon = $('<i>').addClass('fa fa-user col-xs-10').text(response.name);
-        var logout_button = $('<button>').attr('type', 'button').addClass('logout_button');
+        var welcome_div = $('<div>').text('Welcome, ' + response.name);
+        var user_div = $('<div>').addClass('btn-group pull-right');
+        var user_button = $('<button>').attr('type','button').addClass('user_div btn btn-default dropdown-toggle').attr('data-toggle','dropdown').attr('aria-haspopup','true').attr('aria-expanded','false').html('<i class="fa fa-user"></i> <span class="caret"></span>');
+        var user_list = $('<ul>').addClass('dropdown-menu').html('<li><a href="index.php?page=account">Account</a></li><li><a class="logout_link" href="index.php?page=logout">Logout</a></li>')
         var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
-        var account_button = $('<button>').attr('type', 'button').addClass('account_button');
         var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
-        var messages_button = $('<button>').addClass('btn btn-primary message_notification').attr('type','button').html('<a href="index.php?page=messages">Messages</a><span class="badge">0</span>');
-        $(account_button).append(link_to_account);
-        $(logout_button).append(link_to_logout);
-        $(logout_button).click(function() {
+        var messages_button = $('<button>').addClass('btn btn-primary message_notification pull-right').attr('type','button').html('<a href="index.php?page=messages">Inbox</a><span class="badge">0</span>');
+        $('.logout_link').click(function() {
             logout();
         });
-        $(user_icon).append(messages_button,account_button, logout_button)
-        $('#status').append(user_icon);
-    });
+
+        $(user_div).append(user_button, user_list);
+        $('#status').append(welcome_div);
+        $('.user_links').append(user_div, messages_button);
+    }); 
 }
+
+//     <div class="btn-group">
+//   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//     <i class='fa fa-user'></i> <span class="caret"></span>
+//   </button>
+//   <ul class="dropdown-menu">
+//     <li><a href="index.php?page=account">Account</a></li>
+//     <li><a href="index.php?page=logout">Logout</a></li>
+//   </ul>
+// </div>
+// }
 
 function API_call() {
     FB.api('/me', function(response) {

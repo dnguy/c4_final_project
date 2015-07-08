@@ -18,10 +18,9 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
    <fb:login-button scope="public_profile,email" class="col-xs-1 login_button" onlogin="checkLoginState();">
 </fb:login-button>
 
-<div class="col-xs-8" id="status">
+<div class="col-xs-5" id="status">
 </div> 
-<div class='logout_container'>
-</div>
+<div class='col-xs-7 user_links'></div>
   </div>
       <div class="col-xs-12">
       <div class="col-xs-12"><h1 class="header_title">THE SNEAKER <br> CLOSET.</h1></div>
@@ -72,6 +71,6 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
     </div>
 	</div>
 	</div>
-	
+  
 </body>
 </html>

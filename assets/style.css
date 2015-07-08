@@ -196,6 +196,9 @@ textarea {
     font-size: 35px;
     font-weight: 900;
 }
+.user_div{
+    padding:0;
+}
 
 @media (max-width: 480px) {
     .image_container > div > img {
