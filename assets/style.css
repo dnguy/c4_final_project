@@ -53,7 +53,7 @@ body.div {
 
 .image_container > div > img {
     width: 140px;
-    height: 130px;
+    height: 100px;
     transition: all .3s ease;
 }
 
