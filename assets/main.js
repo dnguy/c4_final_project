@@ -234,8 +234,7 @@ function statusChangeCallback(response) {
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+       
     }
 }
 
@@ -292,7 +291,7 @@ function testAPI() {
     FB.api('/me', function(response) {
         $('#status').html('');
         console.log('Successful login for: ' + response.name);
-        var welcome_div = $('<div>').text('Welcome, ' + response.name);
+        var welcome_div = $('<div>').addClass('welcome_message').text('Welcome, ' + response.name);
         var user_div = $('<div>').addClass('btn-group pull-right');
         var user_button = $('<button>').attr('type','button').addClass('user_div btn btn-default dropdown-toggle').attr('data-toggle','dropdown').attr('aria-haspopup','true').attr('aria-expanded','false').html('<i class="fa fa-user"></i> <span class="caret"></span>');
         var user_list = $('<ul>').addClass('dropdown-menu');

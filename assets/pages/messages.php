@@ -46,8 +46,8 @@ console.log(display_messages);
 for(var i = 0; i < display_messages.length; i++){
 
 	var message_div = $('<div>').addClass('col-xs-12 well').attr('thread_id', display_messages[i].thread_id).attr('index_number', i);
-	var message_sender = $('<div>').text('From: ' + display_messages[i].sender).addClass('col-xs-6');
-	var message_subject = $('<div>').text('Subject: ' + display_messages[i].subject).addClass('col-xs-6');
+	var message_sender = $('<div>').text('From: ' + display_messages[i].sender).addClass('col-xs-12 col-sm-6');
+	var message_subject = $('<div>').text('Subject: ' + display_messages[i].subject).addClass('col-xs-12 col-xs-6');
 
 	$(message_div).click(display_thread_messages);
 
@@ -93,11 +93,11 @@ function display_thread_messages(){
 				var thread_message_timestamp = $('<div>').html(user_messages.messages[i].timestamp).addClass('col-xs-6 pull-right');
 				if(user_messages.messages[i].recipient == user_messages.email){
 					$(thread_message_div_container).addClass('sender_message_background');
-					$(thread_message_div_container).addClass('col-xs-6 col-xs-offset-2');
+					$(thread_message_div_container).addClass('col-xs-12 col-sm-6 col-sm-offset-2');
 				}
 				else{
 					$(thread_message_div_container).addClass('user_message_background');
-					$(thread_message_div_container).addClass('col-xs-6 col-xs-offset-4');
+					$(thread_message_div_container).addClass('col-xs-12 col-sm-6 col-sm-offset-4');
 
 				}
 				thread_message_div_container.append(thread_message_div, thread_message_timestamp);

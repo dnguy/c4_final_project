@@ -199,6 +199,9 @@ textarea {
 .user_div{
     padding:0;
 }
+.welcome_message{
+    font-size: 13px;
+}
 
 @media (max-width: 480px) {
     .image_container > div > img {
@@ -217,5 +220,9 @@ textarea {
     .additional_images, #image_container{
         width: 225px;
         height: 200px;
+    }
+    .account_container > div > img {
+        width: 100px;
+        height: 100px;
     }
 }
