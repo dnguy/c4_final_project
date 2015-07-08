@@ -295,14 +295,14 @@ function testAPI() {
         var welcome_div = $('<div>').text('Welcome, ' + response.name);
         var user_div = $('<div>').addClass('btn-group pull-right');
         var user_button = $('<button>').attr('type','button').addClass('user_div btn btn-default dropdown-toggle').attr('data-toggle','dropdown').attr('aria-haspopup','true').attr('aria-expanded','false').html('<i class="fa fa-user"></i> <span class="caret"></span>');
-        var user_list = $('<ul>').addClass('dropdown-menu').html('<li><a href="index.php?page=account">Account</a></li><li><a class="logout_link" href="index.php?page=logout">Logout</a></li>')
-        var link_to_logout = $('<a>').attr('href', 'index.php?page=logout').text('Logout');
-        var link_to_account = $('<a>').attr('href', 'index.php?page=account').text('Account');
+        var user_list = $('<ul>').addClass('dropdown-menu');
+        var link_to_logout = $('<li>').html("<a href='index.php?page=logout'>Logout</a>");
+        var link_to_account = $('<li>').html("<a href='index.php?page=account'>Account</a>");
         var messages_button = $('<button>').addClass('btn btn-primary message_notification pull-right').attr('type','button').html('<a href="index.php?page=messages">Inbox</a><span class="badge">0</span>');
-        $('.logout_link').click(function() {
+        $(link_to_logout).click(function() {
             logout();
         });
-
+        $(user_list).append(link_to_account, link_to_logout);
         $(user_div).append(user_button, user_list);
         $('#status').append(welcome_div);
         $('.user_links').append(user_div, messages_button);
