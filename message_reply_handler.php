@@ -1,7 +1,6 @@
 <?php 
 require('mysql_connect.php');
 session_start();
-
 $postid = addslashes($_POST['postid']);
 $sender = addslashes($_POST['sender']);
 $subject = addslashes($_POST['subject']);
