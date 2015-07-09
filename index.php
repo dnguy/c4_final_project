@@ -43,6 +43,11 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
         </div>
       </div>
 	<div class="container">
+  <div class="col-xs-12">
+<input type='text' name='search' class="search_input col-xs-10 col-sm-4 col-sm-offset-4" placeholder="Search by shoe name">
+<i class="fa fa-search col-xs-1 fa-2x search_button"></i>
+</div>
+<div class="col-xs-10 col-xs-offset-3 refine_search"></div>
     <section class='listing_page'>
         <?php
                if(!isset($_GET['page'])){
