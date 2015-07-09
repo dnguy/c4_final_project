@@ -16,8 +16,7 @@ if(mysqli_affected_rows($con) > 0){
 
 		$output['success'] = true; 
 }
-
-$output = utf8_encode($output);
+$output = array_map('utf8_encode', $output);
 $output_string = json_encode($output);
 print_r($output_string);
 ?>
