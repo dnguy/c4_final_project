@@ -40,8 +40,22 @@
 </script>
 
 <div class="col-xs-10 col-xs-offset-1 sell_container">
+<div class='col-xs-12 sell_description'>
+	<h3>Posting your shoes for sale is simple!</h3>
+	<p><b>Step 1:</b> Make sure you are logged in</p>
+	<p><b>Step 2:</b> Fill out all the fields below and be sure to include at least one photo</p>
+	<p><b>Step 3:</b> Submit the form and check your account for your newly posted item</p>
+</div>
 <form enctype="multipart/form-data" id="file_upload">
-<select name="brand" class="col-xs-12 col-sm-6 col-sm-offset-3">
+<div class='form-group col-xs-12 col-sm-8 col-sm-offset-2'>
+<input type="text" class="title_input form-control " name="title" placeholder="Title">
+</div>
+<div class='form-group col-xs-12 col-sm-8 col-sm-offset-2'>
+<textarea type="text" class="details_input form-control" name="details" placeholder="Details"></textarea>
+</div>
+<div class='col-sm-8 col-sm-offset-2 form_container'>
+<div class='form-group col-xs-12 col-sm-6'>
+<select name="brand" class="form-control">
 	<option value="nike">Nike</option>
 	<option value="nike basketball">Nike Basketball</option>
 	<option value="adidas">Adidas</option>
@@ -54,25 +68,51 @@
 	<option value="puma">Puma</option>
 	<option value="others">Others</option>
 </select>
-<input type="text" class="title_input col-xs-12 col-sm-6 col-sm-offset-3" name="title" placeholder="Title">
-<textarea type="text" class="details_input col-xs-12 col-sm-6 col-sm-offset-3" name="details" placeholder="Details"></textarea>
-<input type="text" class="size_input col-xs-12 col-sm-6 col-sm-offset-3" name="size" placeholder="Size">
-<input type="text" class="price_input col-xs-12 col-sm-6 col-sm-offset-3" name="price" placeholder="Price">
-<input type="text" class="location_input col-xs-12 col-sm-6 col-sm-offset-3" name="location" placeholder="Location">
-<input type="text" class="postal_code_input col-xs-12 col-sm-6 col-sm-offset-3" name="postal_code" placeholder="Postal Code">
-<select name="shoe_condition" class="col-xs-12 col-sm-6 col-sm-offset-3">
+</div>
+<div class='form-group col-xs-12 col-sm-6'>
+<select name="shoe_condition" class="form-control">
 	<option value="brand-new">Brand New</option>
 	<option value="pre-owned">Pre-owned</option>
-</select><br>
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
-<input type="file" class="file_upload col-sm-6 col-sm-offset-3" name="fileToUpload[]" id="fileToUpload">
+</select>
+</div>
+</div>
+<div class='col-sm-8 col-sm-offset-2 form_container'>
+<div class='form-group col-xs-12 col-sm-6'>
+<input type="text" class="size_input form-control" name="size" placeholder="Size">
+</div>
+<div class='form-group col-xs-12 col-sm-6'>
+<input type="text" class="price_input form-control" name="price" placeholder="Price">
+</div>
+</div>
+<div class='col-sm-8 col-sm-offset-2 form_container'>
+<div class='form-group col-xs-12 col-sm-6'>
+<input type="text" class="location_input form-control" name="location" placeholder="Location">
+</div>
+<div class='form-group col-xs-12 col-sm-6'>
+<input type="text" class="postal_code_input form-control" name="postal_code" placeholder="Postal Code">
+</div>
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
+<div class='form-group col-xs-12 col-sm-6 col-sm-offset-3'>
+<input type="file" class="file_upload form-control" name="fileToUpload[]" id="fileToUpload">
+</div>
 <div class="col-xs-12 form_errors"></div>
-<input class="form_button col-xs-6 col-xs-offset-3" type="submit" value="Submit" name="submit">
-<button type="button" class="clear_button col-xs-6 col-xs-offset-3">Clear Form</button>
+<input class="form_button col-xs-6 col-xs-offset-3 btn btn-default btn-success" type="submit" value="Submit" name="submit">
+<button type="button" class="clear_button col-xs-6 col-xs-offset-3 btn btn-default btn-danger">Clear Form</button>
 </form>
 
 </div>

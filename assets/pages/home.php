@@ -3,7 +3,18 @@ $(document).ready(function(){
 	retrieve_info_images();
 });
 </script>
-		<div class="hidden-xs col-xs-1 brands">
+<div class="col-xs-12">
+    <div class="input-group search_container col-xs-10 col-sm-6 col-sm-offset-3">
+      <input type="text" name='search' class="form-control search_input" placeholder="Search by shoe name">
+      <span class="input-group-btn">
+        <button class="btn btn-default search_button" type="button">Search</button>
+      </span>
+    </div>
+  </div>
+<div class='col-xs-12'>
+<div class="col-xs-10 col-sm-8 col-sm-offset-2 refine_search"></div>
+</div>
+	<div class="hidden-xs col-xs-1 brands">
       <h3>BRANDS</h3>
       <p class='nike'>Nike</p>
       <p>Nike Basketball</p>

@@ -78,8 +78,8 @@ function display_images(response) {
             var contact_buyer_button = $('<button>').attr({
                 type: 'submit',
                 index_number: $(this).attr('index_number')
-            }).text('Contact');
-            var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase');
+            }).text('Contact').addClass('btn btn-default');
+            var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase').addClass('btn btn-default');
             var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
 
             $(contact_buyer_button).click(function() {
@@ -394,7 +394,7 @@ $(document).ready(function() {
                     var refine_price_input = $('<input>').attr('placeholder', 'Max Price').addClass('refine_price_input');
                     var refine_zipcode_input = $('<input>').attr('placeholder','Zip Code').addClass('refine_zipcode_input');
                     var refine_zipcode_miles = $('<select>').addClass('miles').attr('name','miles').html('<option value="25">25 Miles</option><option value="50">50 Miles</option><option value="100">100 Miles</option>')
-                    var refine_button = $('<button>').attr({type: 'button'}).text('Search')
+                    var refine_button = $('<button>').attr({type: 'button'}).text('Search').addClass('btn btn-default');
                     $('.refine_search').append(refine_search_title, refine_size_input, refine_price_input, refine_zipcode_input,refine_zipcode_miles, refine_button);
 
                     $(refine_button).click(function(){

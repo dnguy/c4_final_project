@@ -1,5 +1,5 @@
 <?php
-$pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','contact'=>'assets/pages/contact.php','search'=>'assets/pages/search.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
+$pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php','contact'=>'assets/pages/contact.php','about'=>'assets/pages/about.php', 'sell'=>'assets/pages/sell.php', 'account'=>'assets/pages/account.php','logout'=>'assets/pages/logout_handler.php']
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
                 <ul class="nav navbar-nav navigation_items">
                     <li><a href="index.php?page=home">HOME</a></li>
                     <li><a href="index.php?page=sell">SELL</a></li>
-                    <li><a href="index.php?page=search">SEARCH</a></li>
+                    <li><a href="index.php?page=about">ABOUT US</a></li>
                    <!--  <li><a href="#release_dates">RELEASE DATES</a></li> -->
                     <li><a href="index.php?page=contact">CONTACT US</a></li>
                 </ul>
@@ -43,11 +43,6 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
         </div>
       </div>
 	<div class="container">
-  <div class="col-xs-12">
-<input type='text' name='search' class="search_input col-xs-10 col-sm-4 col-sm-offset-4" placeholder="Search by shoe name">
-<i class="fa fa-search col-xs-1 fa-2x search_button"></i>
-</div>
-<div class="col-xs-10 col-xs-offset-3 refine_search"></div>
     <section class='listing_page'>
         <?php
                if(!isset($_GET['page'])){

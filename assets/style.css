@@ -20,17 +20,6 @@ body.div {
     box-shadow: 1px 2px 1px grey;
 }
 
-.search_input {
-    margin-top: 2%;
-    height: 38px;
-    margin-bottom: 2%;
-    border: 1px solid black;
-}
-
-.search_button {
-    margin-top: 2%;
-}
-
 .navigation {
     border-bottom: 7px solid black;
 }
@@ -65,6 +54,9 @@ body.div {
 .image_container > div > img:hover {
     transform: scale(1.1);
     opacity: .7;
+}
+.about_image, .about_content, .refine_search, .sell_description{
+    text-align:center;
 }
 
 .account_container > div {
@@ -201,6 +193,16 @@ textarea {
 }
 .welcome_message{
     font-size: 13px;
+}
+textarea.form-control{
+    height: 100px;
+}
+.form_container{
+    padding:0;
+}
+.search_container{
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 @media (max-width: 480px) {
