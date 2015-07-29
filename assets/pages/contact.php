@@ -4,7 +4,7 @@
                 <h3>Send us a message</h3>
                 <form class="contact_form" role="form" action="//formspree.io/thesneakercloset714@gmail.com" method="post">
                     <div class="form-group">
-                        <input name='name' type="name" class="form-control" id="name" placeholder="Name">
+                        <input name='name' type="name" class="form-control"class="form-control" id="name" placeholder="Name">
                     </div>
                     <div class="form-group">
                         <input name='email' type="email" class="form-control" id="email" placeholder="Email">
