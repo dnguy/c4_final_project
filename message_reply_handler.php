@@ -9,7 +9,7 @@ $recipient = addslashes($_POST['recipient']);
 
 
 $query = "INSERT INTO `kicks`.`messages` (`id`, `recipient`, `sender`, `subject`, `message`, `timestamp`, `status`, `thread_id`) VALUES (NULL, '$recipient', '$sender', '$subject', '$message', CURRENT_TIMESTAMP, '1','$postid');";
-
+echo $query;
 $result = mysqli_query($con, $query);
 
 if(mysqli_affected_rows($con) > 0){
