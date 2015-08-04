@@ -79,7 +79,7 @@ function display_images(response) {
                 type: 'submit',
                 index_number: $(this).attr('index_number')
             }).text('Contact').addClass('btn btn-default');
-            var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase').addClass('btn btn-default');
+            // var purchase_item_button = $('<button>').attr('type', 'submit').text('Purchase').addClass('btn btn-default');
             var vote_priority_button = $('<i>').addClass('fa fa-thumbs-o-up fa-2x').attr('index_number', $(this).attr('index_number'));
 
             $(contact_buyer_button).click(function() {
@@ -154,7 +154,7 @@ function display_images(response) {
             });
 
             $('.modal-title').html(title);
-            $('.modal-body').append(image_container, image_controller, shoe_condition, details, size, price, contact_buyer_button, purchase_item_button, vote_priority_button);
+            $('.modal-body').append(image_container, image_controller, shoe_condition, details, size, price, contact_buyer_button, vote_priority_button);
             $('#myModal').modal('show');
 
         });
