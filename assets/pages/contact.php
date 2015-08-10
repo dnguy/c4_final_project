@@ -1,3 +1,8 @@
+<script>
+$(document).ready(function(){
+    $('.contact_link').css('color','black').css('font-weight','900');
+});
+</script>
 <div class='col-xs-12 contact_title'>HAVE ANY QUESTIONS?</div>
  <div class="col-sm-6 col-sm-offset-3 col-xs-12 contact_container">
             <div class="col-xs-12">

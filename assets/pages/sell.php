@@ -1,5 +1,6 @@
 <script>
 	$(document).ready(function(){
+		    $('.sell_link').css('color','black').css('font-weight','900');
 		$('#file_upload').submit(function(e){
 			var formData = new FormData($(this)[0]);
 			$.ajax({
@@ -41,7 +42,7 @@
 
 <div class="col-xs-10 col-xs-offset-1 sell_container">
 <div class='col-xs-12 sell_description'>
-	<h3>Posting your shoes for sale is simple!</h3>
+	<h1>Posting your shoes for sale is simple!</h1>
 	<p><b>Step 1:</b> Make sure you are logged in</p>
 	<p><b>Step 2:</b> Fill out all the fields below and be sure to include at least one photo</p>
 	<p><b>Step 3:</b> Submit the form and check your account for your newly posted item</p>

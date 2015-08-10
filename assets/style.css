@@ -50,6 +50,9 @@ body.div {
     overflow: hidden;
     width: 140px;
 }
+h1{
+    font-size: 55px;
+}
 
 .image_container > div > img:hover {
     transform: scale(1.1);
@@ -185,7 +188,7 @@ textarea {
     padding: 3px;
 }
 .contact_title{
-    font-size: 35px;
+    font-size: 55px;
     font-weight: 900;
 }
 .user_div{

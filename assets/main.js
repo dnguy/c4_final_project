@@ -199,8 +199,6 @@ function initialize() {
         $('.additional_images').eq(i).css('left', '120%');
     }
 }
-
-
 // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
     window.response = response;
@@ -357,6 +355,12 @@ function logout() {
 
 
 $(document).ready(function() {
+    $('.navbar-nav>li>a').click(function(){
+    console.log('function firing');
+    $('.navbar-nav>li>a').css('color','#aaaaaa');
+    $(this).css('color','black');
+    });
+    
     $('.brands > p').click(function() {
         $.ajax({
             url: 'brand_search_handler.php',

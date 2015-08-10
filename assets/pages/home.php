@@ -1,5 +1,6 @@
 <script>
 $(document).ready(function(){
+  $('.home_link').css('color','black').css('font-weight','900');
 	retrieve_info_images();
 });
 </script>

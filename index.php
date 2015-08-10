@@ -33,11 +33,11 @@ $pages= ['home'=>'assets/pages/home.php', 'messages'=>'assets/pages/messages.php
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse navigation">
                 <ul class="nav navbar-nav navigation_items">
-                    <li><a href="index.php?page=home">HOME</a></li>
-                    <li><a href="index.php?page=sell">SELL</a></li>
-                    <li><a href="index.php?page=about">ABOUT US</a></li>
+                    <li><a class='home_link' href="index.php?page=home">HOME</a></li>
+                    <li><a class='sell_link' href="index.php?page=sell">SELL</a></li>
+                    <li><a class='about_link' href="index.php?page=about">ABOUT US</a></li>
                    <!--  <li><a href="#release_dates">RELEASE DATES</a></li> -->
-                    <li><a href="index.php?page=contact">CONTACT US</a></li>
+                    <li><a class='contact_link' href="index.php?page=contact">CONTACT US</a></li>
                 </ul>
             </div>
         </div>
