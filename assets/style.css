@@ -190,6 +190,7 @@ textarea {
 .contact_title{
     font-size: 55px;
     font-weight: 900;
+    text-align: center;
 }
 .user_div{
     padding:0;
